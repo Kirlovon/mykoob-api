@@ -1,0 +1,36 @@
+{
+    "name": "mykoob-api",
+    "version": "0.0.1",
+    "description": "Rest API wrapper to work with Mykoob!",
+    "main": "index.js",
+    "files": [
+        "./dist/",
+        "./index.js",
+        "./LICENSE"
+    ],
+    "scripts": {
+		"build": "tsc",
+		"test": "mocha --require ts-node/register ./tests/**/*.test.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MykooBot/Mykoob-API.git"
+    },
+    "author": "Kirlovon",
+    "license": "MIT",
+    "dependencies": {
+        "request": "^2.88.0",
+        "request-promise": "^4.2.2"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.1.4",
+        "@types/mocha": "^5.2.5",
+        "@types/node": "^10.9.4",
+        "@types/request": "^2.47.1",
+        "@types/request-promise": "^4.1.42",
+        "chai": "^4.1.2",
+        "mocha": "^5.2.0",
+        "ts-node": "^7.0.1",
+        "typescript": "^3.0.3"
+    }
+}

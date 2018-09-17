@@ -1,2 +1,2 @@
-# Mykoob-API
-Web Scraping API to work with Mykoob!
+# Mykoob API
+Rest API wrapper to work with Mykoob!

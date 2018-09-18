@@ -4,13 +4,14 @@
     "description": "Rest API wrapper to work with Mykoob!",
     "main": "index.js",
     "files": [
-        "./dist/",
-        "./index.js",
-        "./LICENSE"
+        "dist/",
+        "index.js",
+        "LICENSE"
     ],
     "scripts": {
-		"build": "tsc",
-		"test": "mocha --require ts-node/register ./tests/**/*.test.ts"
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "test": "mocha --require ts-node/register ./test/**/*.test.ts"
     },
     "repository": {
         "type": "git",

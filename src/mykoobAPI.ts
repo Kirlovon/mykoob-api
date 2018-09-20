@@ -1,10 +1,10 @@
-// Dependencies
+/** Dependencies */
 import request from "request-promise";
 
-// Interfaces
+/** Interfaces */
 import { authorizationData } from "./Interfaces"
 
-// Main class
+/** Main class */
 export default class {
 
 }

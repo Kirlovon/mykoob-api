@@ -1,0 +1,7 @@
+{
+    "out": "./docs",
+    "theme": "default",
+    "name": "Cache Database",
+    "mode": "file",
+    "readme": "./README.md"
+}

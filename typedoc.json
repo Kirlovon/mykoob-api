@@ -1,7 +1,7 @@
 {
     "out": "./docs",
     "theme": "default",
-    "name": "Cache Database",
+    "name": "Mykoob API",
     "mode": "file",
     "readme": "./README.md"
 }

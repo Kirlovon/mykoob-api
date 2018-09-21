@@ -1,3 +1,8 @@
+/** Wrapper config */
+export interface config {
+	readonly timeout?: number
+}
+
 /** Authorization data */
 export interface authorizationData {
 	readonly username: string

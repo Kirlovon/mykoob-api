@@ -2,10 +2,17 @@
 import request from "request-promise"
 
 /** Interfaces */
-import { authorizationData, timeFrame } from "./Interfaces"
+import { authorizationData, timeFrame, config } from "./Interfaces"
 
 /** Rest API wrapper to work with Mykoob! */
 class mykoobAPI {
+
+	private timeout: number
+
+	/** Config for mykoobAPI */
+	constructor(config: config = {}) {
+		this.timeout = config.timeout || 10000
+	}
 
 	/** 
 	 * Ping www.mykoob.lv 
@@ -28,11 +35,11 @@ class mykoobAPI {
 	 * @param userData Authorization data
 	 * @returns Returns object with data and authorization status
 	*/
-	public async authorize(userData: authorizationData): Promise<object> {
+	public async authorize(userData: authorizationData): Promise<any> {
 
 		let response = await request({
 			method: "POST",
-			timeout: 10000,
+			timeout: this.timeout,
 			url: "https://www.mykoob.lv/?oauth2/authorizeDevice",
 			form: {
 				use_oauth_proxy: 1,
@@ -50,11 +57,11 @@ class mykoobAPI {
 	 * @param token Authorization token from authorize() method
 	 * @returns Returns object with available api's
 	*/
-	public async apisDetailed(token: string) {
+	public async apisDetailed(token: string): Promise<any> {
 
 		let response = await request({
 			method: "POST",
-			timeout: 10000,
+			timeout: this.timeout,
 			url: "https://www.mykoob.lv//?api/resource",
 			form: {
 				api: "user_data",
@@ -70,11 +77,11 @@ class mykoobAPI {
 	 * @param token Authorization token from authorize() method
 	 * @returns Returns object with all data about user
 	*/
-	public async userData(token: string) {
+	public async userData(token: string): Promise<any> {
 
 		let response = await request({
 			method: "POST",
-			timeout: 10000,
+			timeout: this.timeout,
 			url: "https://www.mykoob.lv//?api/resource",
 			form: {
 				api: "user_data",
@@ -91,11 +98,11 @@ class mykoobAPI {
 	 * @param date Time frame of the necessary information
 	 * @returns Returns object with all user activities
 	*/
-	public async userActivities(token: string, date: timeFrame) {
+	public async userActivities(token: string, date: timeFrame): Promise<any> {
 
 		let response = await request({
 			method: "POST",
-			timeout: 10000,
+			timeout: this.timeout,
 			url: "https://www.mykoob.lv//?api/resource",
 			form: {
 				api: "user_activities",

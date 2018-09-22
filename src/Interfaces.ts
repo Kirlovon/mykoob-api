@@ -1,16 +1,35 @@
-/** Wrapper config */
-export interface config {
-	readonly timeout?: number
-}
-
 /** Authorization data */
-export interface authorizationData {
+export interface authorize {
+
+	/** Authorization Email */
 	readonly username: string
+
+	/** Authorization Password */
 	readonly password: string
 }
 
-/** Date */
-export interface timeFrame {
+/** Config for userActivities() method */
+export interface userActivities {
+
+	/** Beginning of time frame in "YYYY-MM-DD" format */
 	readonly from: string
+
+	/** Ending of time frame in "YYYY-MM-DD" format */
 	readonly to: string
+}
+
+/** Config for lessonsPlan() method */
+export interface lessonsPlan {
+
+	/** Beginning of time frame in "YYYY-MM-DD" format */
+	readonly from: string
+
+	/** Ending of time frame in "YYYY-MM-DD" format */
+	readonly to: string
+
+	/** Classes ID from userData() method */
+	readonly classesID: string
+
+	/** User ID from userData() method */
+	readonly userID: string
 }

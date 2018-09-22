@@ -2,17 +2,13 @@
 import request from "request-promise"
 
 /** Interfaces */
-import { authorizationData, timeFrame, config } from "./Interfaces"
+import * as interfaces from "./Interfaces"
 
 /** Rest API wrapper to work with Mykoob! */
 class mykoobAPI {
 
-	private timeout: number
-
-	/** Config for mykoobAPI */
-	constructor(config: config = {}) {
-		this.timeout = config.timeout || 10000
-	}
+	/** Requests timeout */
+	public timeout: number = 10000
 
 	/** 
 	 * Ping www.mykoob.lv 
@@ -22,7 +18,7 @@ class mykoobAPI {
 
 		let response = await request({
 			method: "GET",
-			timeout: 10000,
+			timeout: this.timeout,
 			resolveWithFullResponse: true,
 			url: "https://www.mykoob.lv/",
 		})
@@ -31,11 +27,27 @@ class mykoobAPI {
 	}
 
 	/** 
-	 * Get mykoob authorization token
-	 * @param userData Authorization data
-	 * @returns Returns object with data and authorization status
+	 * Get translations
+	 * @returns Returns object with translations on Latvian, Russian and English languages
 	*/
-	public async authorize(userData: authorizationData): Promise<any> {
+	public async getAppTranslations(): Promise<any> {
+
+		let response = await request({
+			method: "POST",
+			timeout: this.timeout,
+			url: "https://www.mykoob.lv/?oauth2/getAppTranslations",
+			form: { all: true }
+		})
+
+		return JSON.parse(response)
+	}
+
+	/** 
+	 * Get mykoob access token
+	 * @param data Authorization data
+	 * @returns Returns object with access token and authorization status
+	*/
+	public async authorize(data: interfaces.authorize): Promise<any> {
 
 		let response = await request({
 			method: "POST",
@@ -44,8 +56,8 @@ class mykoobAPI {
 			form: {
 				use_oauth_proxy: 1,
 				client: "MykoobMobile",
-				username: userData.username,
-				password: userData.password
+				username: data.username,
+				password: data.password
 			}
 		})
 
@@ -54,7 +66,7 @@ class mykoobAPI {
 
 	/** 
 	 * Get api's detailed information
-	 * @param token Authorization token from authorize() method
+	 * @param token Access token from authorize() method
 	 * @returns Returns object with available api's
 	*/
 	public async apisDetailed(token: string): Promise<any> {
@@ -74,7 +86,7 @@ class mykoobAPI {
 
 	/** 
 	 * Get user data
-	 * @param token Authorization token from authorize() method
+	 * @param token Access token from authorize() method
 	 * @returns Returns object with all data about user
 	*/
 	public async userData(token: string): Promise<any> {
@@ -94,11 +106,11 @@ class mykoobAPI {
 
 	/** 
 	 * Get user activities
-	 * @param token Authorization token from authorize() method
-	 * @param date Time frame of the necessary information
+	 * @param token Access token from authorize() method
+	 * @param config Time frame of the necessary information in "YYYY-MM-DD" format
 	 * @returns Returns object with all user activities
 	*/
-	public async userActivities(token: string, date: timeFrame): Promise<any> {
+	public async userActivities(token: string, config: interfaces.userActivities): Promise<any> {
 
 		let response = await request({
 			method: "POST",
@@ -107,14 +119,38 @@ class mykoobAPI {
 			form: {
 				api: "user_activities",
 				access_token: token,
-				date_from: date.from,
-				date_to: date.to
+				date_from: config.from,
+				date_to: config.to
 			}
 		})
 
 		return JSON.parse(response)
 	}
 
+	/** 
+	 * Get lessons plan
+	 * @param token Access token from authorize() method
+	 * @param config Time frame of the necessary lessons plan in "YYYY-MM-DD" format
+	 * @returns Returns object with lessons plan
+	*/
+	public async lessonsPlan(token: string, config: interfaces.lessonsPlan): Promise<any> {
+
+		let response = await request({
+			method: "POST",
+			timeout: this.timeout,
+			url: "https://www.mykoob.lv//?api/resource",
+			form: {
+				api: "user_lessonsplan",
+				access_token: token,
+				date_from: config.from,
+				date_to: config.to,
+				school_classes_id: config.classesID,
+				school_user_id: config.userID
+			}
+		})
+
+		return JSON.parse(response)
+	}
 }
 
 /** Class export */

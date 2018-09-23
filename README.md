@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://mykoobot.github.io/Design-Assets/assets/mykoob-api/logo.svg" width="512">
+	<img src="https://mykoobot.github.io/Design-Assets/assets/mykoob-api/logo.svg" width="256">
 </p>
 
 <p align="center">

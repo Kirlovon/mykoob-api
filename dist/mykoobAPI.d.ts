@@ -1,8 +1,7 @@
 import * as interfaces from "./Interfaces";
 declare class mykoobAPI {
     timeout: number;
-    ping(): Promise<number>;
-    getAppTranslations(): Promise<any>;
+    filter: boolean;
     authorize(data: interfaces.authorize): Promise<any>;
     apisDetailed(token: string): Promise<any>;
     userData(token: string): Promise<any>;

@@ -14,28 +14,7 @@ const request_promise_1 = __importDefault(require("request-promise"));
 class mykoobAPI {
     constructor() {
         this.timeout = 10000;
-    }
-    ping() {
-        return __awaiter(this, void 0, void 0, function* () {
-            let response = yield request_promise_1.default({
-                method: "GET",
-                timeout: this.timeout,
-                resolveWithFullResponse: true,
-                url: "https://www.mykoob.lv/",
-            });
-            return response.statusCode;
-        });
-    }
-    getAppTranslations() {
-        return __awaiter(this, void 0, void 0, function* () {
-            let response = yield request_promise_1.default({
-                method: "POST",
-                timeout: this.timeout,
-                url: "https://www.mykoob.lv/?oauth2/getAppTranslations",
-                form: { all: true }
-            });
-            return JSON.parse(response);
-        });
+        this.filter = true;
     }
     authorize(data) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -50,7 +29,13 @@ class mykoobAPI {
                     password: data.password
                 }
             });
-            return JSON.parse(response);
+            let parsedResponse = JSON.parse(response);
+            if (this.filter) {
+                delete parsedResponse.token_type;
+                delete parsedResponse.refresh_token;
+                delete parsedResponse.scope;
+            }
+            return parsedResponse;
         });
     }
     apisDetailed(token) {
@@ -60,11 +45,22 @@ class mykoobAPI {
                 timeout: this.timeout,
                 url: "https://www.mykoob.lv//?api/resource",
                 form: {
-                    api: "user_data",
+                    api: "all_device_apis_detailed",
                     access_token: token,
                 }
             });
-            return JSON.parse(response);
+            let parsedResponse = JSON.parse(response);
+            if (this.filter) {
+                for (let index in parsedResponse) {
+                    delete parsedResponse[index].in;
+                    delete parsedResponse[index].out;
+                    delete parsedResponse[index].errors;
+                }
+                delete parsedResponse.register_device;
+                delete parsedResponse.unregister_device;
+                delete parsedResponse.notification_settings;
+            }
+            return parsedResponse;
         });
     }
     userData(token) {

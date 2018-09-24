@@ -10,37 +10,8 @@ class mykoobAPI {
 	/** Requests timeout */
 	public timeout: number = 10000
 
-	/** 
-	 * Ping www.mykoob.lv 
-	 * @returns Returns status code
-	*/
-	public async ping(): Promise<number> {
-
-		let response = await request({
-			method: "GET",
-			timeout: this.timeout,
-			resolveWithFullResponse: true,
-			url: "https://www.mykoob.lv/",
-		})
-
-		return response.statusCode
-	}
-
-	/** 
-	 * Get translations
-	 * @returns Returns object with translations on Latvian, Russian and English languages
-	*/
-	public async getAppTranslations(): Promise<any> {
-
-		let response = await request({
-			method: "POST",
-			timeout: this.timeout,
-			url: "https://www.mykoob.lv/?oauth2/getAppTranslations",
-			form: { all: true }
-		})
-
-		return JSON.parse(response)
-	}
+	/** Removes from responses unnecessary data */
+	public filter: boolean = true
 
 	/** 
 	 * Get mykoob access token
@@ -61,7 +32,16 @@ class mykoobAPI {
 			}
 		})
 
-		return JSON.parse(response)
+		let parsedResponse = JSON.parse(response)
+
+		// Remove useless data
+		if (this.filter) {
+			delete parsedResponse.token_type
+			delete parsedResponse.refresh_token
+			delete parsedResponse.scope
+		}
+
+		return parsedResponse
 	}
 
 	/** 
@@ -76,12 +56,26 @@ class mykoobAPI {
 			timeout: this.timeout,
 			url: "https://www.mykoob.lv//?api/resource",
 			form: {
-				api: "user_data",
+				api: "all_device_apis_detailed",
 				access_token: token,
 			}
 		})
 
-		return JSON.parse(response)
+		let parsedResponse = JSON.parse(response)
+
+		// Remove useless data
+		if (this.filter) {
+			for (let index in parsedResponse) {
+				delete parsedResponse[index].in
+				delete parsedResponse[index].out
+				delete parsedResponse[index].errors
+			}
+			delete parsedResponse.register_device
+			delete parsedResponse.unregister_device
+			delete parsedResponse.notification_settings
+		}
+
+		return parsedResponse
 	}
 
 	/** 

@@ -74,7 +74,15 @@ class mykoobAPI {
                     access_token: token,
                 }
             });
-            return JSON.parse(response);
+            let parsedResponse = JSON.parse(response);
+            if (this.filter) {
+                delete parsedResponse.user_data.plus_ends;
+                delete parsedResponse.user_data.plus_service;
+                delete parsedResponse.user_data.plus_owner_name;
+                delete parsedResponse.user_data.plus_provider;
+                delete parsedResponse.user_data.plus_price_display;
+            }
+            return parsedResponse;
         });
     }
     userActivities(token, config) {
@@ -106,6 +114,24 @@ class mykoobAPI {
                     date_to: config.to,
                     school_classes_id: config.classesID,
                     school_user_id: config.userID
+                }
+            });
+            return JSON.parse(response);
+        });
+    }
+    userProfileImage(token, size) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let response = yield request_promise_1.default({
+                method: "POST",
+                timeout: this.timeout,
+                url: "https://www.mykoob.lv//?api/resource",
+                form: {
+                    api: "user_profile_image",
+                    access_token: token,
+                    own_image: true,
+                    use_base64: true,
+                    dont_use_json: false,
+                    image_size: size
                 }
             });
             return JSON.parse(response);

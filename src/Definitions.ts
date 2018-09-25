@@ -28,8 +28,11 @@ export interface lessonsPlan {
 	readonly to: string
 
 	/** Classes ID from userData() method */
-	readonly classesID: string
+	readonly classesID: number
 
 	/** User ID from userData() method */
-	readonly userID: string
+	readonly userID: number
 }
+
+/** Image size for userProfileImage() method */
+export type imageSize = "SMALL" | "MEDIUM"

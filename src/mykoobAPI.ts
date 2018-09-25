@@ -1,8 +1,8 @@
 /** Dependencies */
 import request from "request-promise"
 
-/** Interfaces */
-import * as interfaces from "./Interfaces"
+/** Definitions */
+import * as definitions from "./definitions"
 
 /** Rest API wrapper to work with Mykoob! */
 class mykoobAPI {
@@ -18,7 +18,7 @@ class mykoobAPI {
 	 * @param data Authorization data
 	 * @returns Returns object with access token and authorization status
 	*/
-	public async authorize(data: interfaces.authorize): Promise<any> {
+	public async authorize(data: definitions.authorize): Promise<any> {
 
 		let response = await request({
 			method: "POST",
@@ -95,7 +95,18 @@ class mykoobAPI {
 			}
 		})
 
-		return JSON.parse(response)
+		let parsedResponse = JSON.parse(response)
+
+		// Remove useless data
+		if (this.filter) {
+			delete parsedResponse.user_data.plus_ends
+			delete parsedResponse.user_data.plus_service
+			delete parsedResponse.user_data.plus_owner_name
+			delete parsedResponse.user_data.plus_provider
+			delete parsedResponse.user_data.plus_price_display
+		}
+
+		return parsedResponse
 	}
 
 	/** 
@@ -104,7 +115,7 @@ class mykoobAPI {
 	 * @param config Time frame of the necessary information in "YYYY-MM-DD" format
 	 * @returns Returns object with all user activities
 	*/
-	public async userActivities(token: string, config: interfaces.userActivities): Promise<any> {
+	public async userActivities(token: string, config: definitions.userActivities): Promise<any> {
 
 		let response = await request({
 			method: "POST",
@@ -127,7 +138,7 @@ class mykoobAPI {
 	 * @param config Time frame of the necessary lessons plan in "YYYY-MM-DD" format
 	 * @returns Returns object with lessons plan
 	*/
-	public async lessonsPlan(token: string, config: interfaces.lessonsPlan): Promise<any> {
+	public async lessonsPlan(token: string, config: definitions.lessonsPlan): Promise<any> {
 
 		let response = await request({
 			method: "POST",
@@ -140,6 +151,31 @@ class mykoobAPI {
 				date_to: config.to,
 				school_classes_id: config.classesID,
 				school_user_id: config.userID
+			}
+		})
+
+		return JSON.parse(response)
+	}
+
+	/** 
+	 * Get user profile image
+	 * @param token Access token from authorize() method
+	 * @param size Image size ( "SMALL" or "MEDIUM")
+	 * @returns Returns image in base64 format
+	*/
+	public async userProfileImage(token: string, size: definitions.imageSize): Promise<any> {
+
+		let response = await request({
+			method: "POST",
+			timeout: this.timeout,
+			url: "https://www.mykoob.lv//?api/resource",
+			form: {
+				api: "user_profile_image",
+				access_token: token,
+				own_image: true,
+				use_base64: true,
+				dont_use_json: false,
+				image_size: size
 			}
 		})
 

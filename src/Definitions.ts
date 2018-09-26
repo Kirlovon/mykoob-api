@@ -2,7 +2,7 @@
 export interface authorize {
 
 	/** Authorization Email */
-	readonly username: string
+	readonly email: string
 
 	/** Authorization Password */
 	readonly password: string

@@ -27,7 +27,7 @@ class mykoobAPI {
 			form: {
 				use_oauth_proxy: 1,
 				client: "MykoobMobile",
-				username: data.username,
+				username: data.email,
 				password: data.password
 			}
 		})

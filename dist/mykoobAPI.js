@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 const request_promise_1 = __importDefault(require("request-promise"));
 class mykoobAPI {
     constructor() {
@@ -25,7 +26,7 @@ class mykoobAPI {
                 form: {
                     use_oauth_proxy: 1,
                     client: "MykoobMobile",
-                    username: data.username,
+                    username: data.email,
                     password: data.password
                 }
             });
@@ -138,4 +139,4 @@ class mykoobAPI {
         });
     }
 }
-module.exports = mykoobAPI;
+exports.default = mykoobAPI;

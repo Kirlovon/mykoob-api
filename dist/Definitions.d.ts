@@ -1,5 +1,5 @@
 export interface authorize {
-    readonly username: string;
+    readonly email: string;
     readonly password: string;
 }
 export interface userActivities {

@@ -9,4 +9,4 @@ declare class mykoobAPI {
     lessonsPlan(token: string, config: definitions.lessonsPlan): Promise<any>;
     userProfileImage(token: string, size: definitions.imageSize): Promise<any>;
 }
-export = mykoobAPI;
+export default mykoobAPI;

@@ -1,4 +1,4 @@
 {
-	"username": "YOUR USERNAME",
-	"password": "YOUR PASSWORD"
+	"email": "YOUR EMAIL IN BASE64",
+	"password": "YOUR PASSWORD IN BASE64"
 }

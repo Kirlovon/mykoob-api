@@ -88,7 +88,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="mykoobapi.html#authorizationurl" class="tsd-kind-icon">authorizationURL</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mykoobapi.html#filter" class="tsd-kind-icon">filter</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="mykoobapi.html#resourcesurl" class="tsd-kind-icon">resourcesURL</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mykoobapi.html#timeout" class="tsd-kind-icon">timeout</a></li>
 							</ul>
 						</section>
@@ -98,6 +100,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#apisdetailed" class="tsd-kind-icon">apis<wbr>Detailed</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#authorize" class="tsd-kind-icon">authorize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#lessonsplan" class="tsd-kind-icon">lessons<wbr>Plan</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#markasseen" class="tsd-kind-icon">mark<wbr>AsSeen</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#unseenevents" class="tsd-kind-icon">unseen<wbr>Events</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#useractivities" class="tsd-kind-icon">user<wbr>Activities</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#userdata" class="tsd-kind-icon">user<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#userprofileimage" class="tsd-kind-icon">user<wbr>Profile<wbr>Image</a></li>
@@ -108,18 +112,43 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="authorizationurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> authorizationURL</h3>
+					<div class="tsd-signature tsd-kind-icon">authorizationURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.mykoob.lv/?oauth2/authorizeDevice&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L18">mykoobAPI.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="filter" class="tsd-anchor"></a>
 					<h3>filter</h3>
 					<div class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/482bcc5/src/mykoobAPI.ts#L14">mykoobAPI.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L14">mykoobAPI.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Removes from responses unnecessary data</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="resourcesurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> resourcesURL</h3>
+					<div class="tsd-signature tsd-kind-icon">resourcesURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.mykoob.lv//?api/resource&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L17">mykoobAPI.ts:17</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>API URLs</p>
 						</div>
 					</div>
 				</section>
@@ -129,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/482bcc5/src/mykoobAPI.ts#L11">mykoobAPI.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L11">mykoobAPI.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -151,7 +180,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/482bcc5/src/mykoobAPI.ts#L52">mykoobAPI.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L56">mykoobAPI.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -183,7 +212,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/482bcc5/src/mykoobAPI.ts#L21">mykoobAPI.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L25">mykoobAPI.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -215,7 +244,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/482bcc5/src/mykoobAPI.ts#L141">mykoobAPI.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L145">mykoobAPI.ts:145</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -244,6 +273,70 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="markasseen" class="tsd-anchor"></a>
+					<h3>mark<wbr>AsSeen</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">mark<wbr>AsSeen<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L221">mykoobAPI.ts:221</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Mark all events as seen</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>token: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Access token from authorize() method</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Action status</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="unseenevents" class="tsd-anchor"></a>
+					<h3>unseen<wbr>Events</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">unseen<wbr>Events<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L194">mykoobAPI.ts:194</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get number of unseen events</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>token: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Access token from authorize() method</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Returns number of unseen events</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="useractivities" class="tsd-anchor"></a>
 					<h3>user<wbr>Activities</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -253,7 +346,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/482bcc5/src/mykoobAPI.ts#L118">mykoobAPI.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L122">mykoobAPI.ts:122</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -291,7 +384,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/482bcc5/src/mykoobAPI.ts#L86">mykoobAPI.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L90">mykoobAPI.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -323,7 +416,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/482bcc5/src/mykoobAPI.ts#L166">mykoobAPI.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/mykoobAPI.ts#L170">mykoobAPI.ts:170</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -368,8 +461,14 @@
 					<li class="current tsd-kind-class">
 						<a href="mykoobapi.html" class="tsd-kind-icon">mykoobAPI</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="mykoobapi.html#authorizationurl" class="tsd-kind-icon">authorizationURL</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="mykoobapi.html#filter" class="tsd-kind-icon">filter</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="mykoobapi.html#resourcesurl" class="tsd-kind-icon">resourcesURL</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="mykoobapi.html#timeout" class="tsd-kind-icon">timeout</a>
@@ -382,6 +481,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="mykoobapi.html#lessonsplan" class="tsd-kind-icon">lessons<wbr>Plan</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mykoobapi.html#markasseen" class="tsd-kind-icon">mark<wbr>AsSeen</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mykoobapi.html#unseenevents" class="tsd-kind-icon">unseen<wbr>Events</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="mykoobapi.html#useractivities" class="tsd-kind-icon">user<wbr>Activities</a>

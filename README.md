@@ -21,16 +21,17 @@ npm install MykooBot/Mykoob-API --save
 
 ## Features
 - Authorization _( Access token receiving )_
-- Available API list receiving
+- Available APIs list receiving
 - User data receiving
 - User profile image receiving
 - Activities receiving _( Feed )_
 - Lessons plan receiving
+- Receiving number of unseen events
+- Mark events as seen
 
 ## To-Do
 - Grades receiving
 - Attendance receiving
 - Homework receiving
-- Mark events as seen
 
 _This Wrapper supports only the basic functionality of Mykoob REST Api. I do not plan to add support for something more specific, like chats._

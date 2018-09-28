@@ -16,13 +16,15 @@ class mykoobAPI {
     constructor() {
         this.timeout = 10000;
         this.filter = true;
+        this.resourcesURL = "https://www.mykoob.lv//?api/resource";
+        this.authorizationURL = "https://www.mykoob.lv/?oauth2/authorizeDevice";
     }
     authorize(data) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield request_promise_1.default({
                 method: "POST",
                 timeout: this.timeout,
-                url: "https://www.mykoob.lv/?oauth2/authorizeDevice",
+                url: this.authorizationURL,
                 form: {
                     use_oauth_proxy: 1,
                     client: "MykoobMobile",
@@ -44,7 +46,7 @@ class mykoobAPI {
             let response = yield request_promise_1.default({
                 method: "POST",
                 timeout: this.timeout,
-                url: "https://www.mykoob.lv//?api/resource",
+                url: this.resourcesURL,
                 form: {
                     api: "all_device_apis_detailed",
                     access_token: token,
@@ -69,7 +71,7 @@ class mykoobAPI {
             let response = yield request_promise_1.default({
                 method: "POST",
                 timeout: this.timeout,
-                url: "https://www.mykoob.lv//?api/resource",
+                url: this.resourcesURL,
                 form: {
                     api: "user_data",
                     access_token: token,
@@ -91,7 +93,7 @@ class mykoobAPI {
             let response = yield request_promise_1.default({
                 method: "POST",
                 timeout: this.timeout,
-                url: "https://www.mykoob.lv//?api/resource",
+                url: this.resourcesURL,
                 form: {
                     api: "user_activities",
                     access_token: token,
@@ -107,7 +109,7 @@ class mykoobAPI {
             let response = yield request_promise_1.default({
                 method: "POST",
                 timeout: this.timeout,
-                url: "https://www.mykoob.lv//?api/resource",
+                url: this.resourcesURL,
                 form: {
                     api: "user_lessonsplan",
                     access_token: token,
@@ -125,7 +127,7 @@ class mykoobAPI {
             let response = yield request_promise_1.default({
                 method: "POST",
                 timeout: this.timeout,
-                url: "https://www.mykoob.lv//?api/resource",
+                url: this.resourcesURL,
                 form: {
                     api: "user_profile_image",
                     access_token: token,
@@ -133,6 +135,38 @@ class mykoobAPI {
                     use_base64: true,
                     dont_use_json: false,
                     image_size: size
+                }
+            });
+            return JSON.parse(response);
+        });
+    }
+    unseenEvents(token) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let response = yield request_promise_1.default({
+                method: "POST",
+                timeout: this.timeout,
+                url: this.resourcesURL,
+                form: {
+                    api: "unseen_events_count",
+                    access_token: token,
+                }
+            });
+            let parsedResponse = JSON.parse(response);
+            if (this.filter) {
+                return parsedResponse.unseen_events_count.activities;
+            }
+            return parsedResponse;
+        });
+    }
+    markAsSeen(token) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let response = yield request_promise_1.default({
+                method: "POST",
+                timeout: this.timeout,
+                url: this.resourcesURL,
+                form: {
+                    api: "mark_user_activities_seen",
+                    access_token: token,
                 }
             });
             return JSON.parse(response);

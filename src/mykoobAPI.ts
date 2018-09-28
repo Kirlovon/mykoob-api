@@ -13,6 +13,10 @@ class mykoobAPI {
 	/** Removes from responses unnecessary data */
 	public filter: boolean = true
 
+	/** API URLs */
+	private resourcesURL: string = "https://www.mykoob.lv//?api/resource"
+	private authorizationURL: string = "https://www.mykoob.lv/?oauth2/authorizeDevice"
+
 	/** 
 	 * Get mykoob access token
 	 * @param data Authorization data
@@ -23,7 +27,7 @@ class mykoobAPI {
 		let response = await request({
 			method: "POST",
 			timeout: this.timeout,
-			url: "https://www.mykoob.lv/?oauth2/authorizeDevice",
+			url: this.authorizationURL,
 			form: {
 				use_oauth_proxy: 1,
 				client: "MykoobMobile",
@@ -54,7 +58,7 @@ class mykoobAPI {
 		let response = await request({
 			method: "POST",
 			timeout: this.timeout,
-			url: "https://www.mykoob.lv//?api/resource",
+			url: this.resourcesURL,
 			form: {
 				api: "all_device_apis_detailed",
 				access_token: token,
@@ -88,7 +92,7 @@ class mykoobAPI {
 		let response = await request({
 			method: "POST",
 			timeout: this.timeout,
-			url: "https://www.mykoob.lv//?api/resource",
+			url: this.resourcesURL,
 			form: {
 				api: "user_data",
 				access_token: token,
@@ -120,7 +124,7 @@ class mykoobAPI {
 		let response = await request({
 			method: "POST",
 			timeout: this.timeout,
-			url: "https://www.mykoob.lv//?api/resource",
+			url: this.resourcesURL,
 			form: {
 				api: "user_activities",
 				access_token: token,
@@ -143,7 +147,7 @@ class mykoobAPI {
 		let response = await request({
 			method: "POST",
 			timeout: this.timeout,
-			url: "https://www.mykoob.lv//?api/resource",
+			url: this.resourcesURL,
 			form: {
 				api: "user_lessonsplan",
 				access_token: token,
@@ -168,7 +172,7 @@ class mykoobAPI {
 		let response = await request({
 			method: "POST",
 			timeout: this.timeout,
-			url: "https://www.mykoob.lv//?api/resource",
+			url: this.resourcesURL,
 			form: {
 				api: "user_profile_image",
 				access_token: token,
@@ -181,6 +185,54 @@ class mykoobAPI {
 
 		return JSON.parse(response)
 	}
+
+	/** 
+	 * Get number of unseen events
+	 * @param token Access token from authorize() method
+	 * @returns Returns number of unseen events
+	*/
+	public async unseenEvents(token: string): Promise<any> {
+
+		let response = await request({
+			method: "POST",
+			timeout: this.timeout,
+			url: this.resourcesURL,
+			form: {
+				api: "unseen_events_count",
+				access_token: token,
+			}
+		})
+
+		let parsedResponse = JSON.parse(response)
+
+		// Remove useless data
+		if (this.filter) {
+			return parsedResponse.unseen_events_count.activities
+		}
+
+		return parsedResponse
+	}
+
+	/** 
+	 * Mark all events as seen
+	 * @param token Access token from authorize() method
+	 * @returns Action status
+	*/
+	public async markAsSeen(token: string): Promise<any> {
+
+		let response = await request({
+			method: "POST",
+			timeout: this.timeout,
+			url: this.resourcesURL,
+			form: {
+				api: "mark_user_activities_seen",
+				access_token: token,
+			}
+		})
+
+		return JSON.parse(response)
+	}
+
 }
 
 /** Class export */

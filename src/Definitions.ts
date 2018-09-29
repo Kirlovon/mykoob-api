@@ -9,7 +9,7 @@ export interface authorize {
 }
 
 /** Config for userActivities() method */
-export interface userActivities {
+export interface timeFrame {
 
 	/** Beginning of time frame in "YYYY-MM-DD" format */
 	readonly from: string
@@ -18,8 +18,8 @@ export interface userActivities {
 	readonly to: string
 }
 
-/** Config for lessonsPlan() method */
-export interface lessonsPlan {
+/** Config for lessonsPlan() and userGrades() methods */
+export interface timeFrameInfo {
 
 	/** Beginning of time frame in "YYYY-MM-DD" format */
 	readonly from: string
@@ -28,10 +28,10 @@ export interface lessonsPlan {
 	readonly to: string
 
 	/** Classes ID from userData() method */
-	readonly classesID: number
+	readonly schoolClassesID: number
 
 	/** User ID from userData() method */
-	readonly userID: number
+	readonly schoolUserID: number
 }
 
 /** Image size for userProfileImage() method */

@@ -88,6 +88,24 @@ class mykoobAPI {
             return parsedResponse;
         });
     }
+    userGrades(token, config) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let response = yield request_promise_1.default({
+                method: "POST",
+                timeout: this.timeout,
+                url: this.resourcesURL,
+                form: {
+                    api: "user_grades",
+                    access_token: token,
+                    date_from: config.from,
+                    date_to: config.to,
+                    school_classes_id: config.schoolClassesID,
+                    school_user_id: config.schoolUserID
+                }
+            });
+            return JSON.parse(response);
+        });
+    }
     userActivities(token, config) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield request_promise_1.default({
@@ -115,8 +133,8 @@ class mykoobAPI {
                     access_token: token,
                     date_from: config.from,
                     date_to: config.to,
-                    school_classes_id: config.classesID,
-                    school_user_id: config.userID
+                    school_classes_id: config.schoolClassesID,
+                    school_user_id: config.schoolUserID
                 }
             });
             return JSON.parse(response);
@@ -166,6 +184,20 @@ class mykoobAPI {
                 url: this.resourcesURL,
                 form: {
                     api: "mark_user_activities_seen",
+                    access_token: token,
+                }
+            });
+            return JSON.parse(response);
+        });
+    }
+    plusServicesInfo(token) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let response = yield request_promise_1.default({
+                method: "POST",
+                timeout: this.timeout,
+                url: this.resourcesURL,
+                form: {
+                    api: "plus_services",
                     access_token: token,
                 }
             });

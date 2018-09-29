@@ -28,9 +28,10 @@ npm install MykooBot/Mykoob-API --save
 - Lessons plan receiving
 - Receiving number of unseen events
 - Mark events as seen
+- Receiving info about Mykoob Plus
+- Grades receiving _( Mykoob Plus Only )_
 
 ## To-Do
-- Grades receiving
 - Attendance receiving
 - Homework receiving
 

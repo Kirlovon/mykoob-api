@@ -13,8 +13,10 @@ class mykoobAPI {
 	/** Removes from responses unnecessary data */
 	public filter: boolean = true
 
-	/** API URLs */
+	/** URL for Mykoob Resources API */
 	private resourcesURL: string = "https://www.mykoob.lv//?api/resource"
+
+	/** URL for Mykoob Authorization API */
 	private authorizationURL: string = "https://www.mykoob.lv/?oauth2/authorizeDevice"
 
 	/** 
@@ -114,12 +116,37 @@ class mykoobAPI {
 	}
 
 	/** 
+	 * Get user grades
+	 * @param token Access token from authorize() method
+	 * @param config Time frame, school classes id and school user id
+	 * @returns Returns object with grades
+	*/
+	public async userGrades(token: string, config: definitions.timeFrameInfo) {
+		
+		let response = await request({
+			method: "POST",
+			timeout: this.timeout,
+			url: this.resourcesURL,
+			form: {
+				api: "user_grades",
+				access_token: token,
+				date_from: config.from,
+				date_to: config.to,
+				school_classes_id: config.schoolClassesID,
+				school_user_id: config.schoolUserID
+			}
+		})
+
+		return JSON.parse(response)
+	}
+
+	/** 
 	 * Get user activities
 	 * @param token Access token from authorize() method
-	 * @param config Time frame of the necessary information in "YYYY-MM-DD" format
+	 * @param config Time frame
 	 * @returns Returns object with all user activities
 	*/
-	public async userActivities(token: string, config: definitions.userActivities): Promise<any> {
+	public async userActivities(token: string, config: definitions.timeFrame): Promise<any> {
 
 		let response = await request({
 			method: "POST",
@@ -139,10 +166,10 @@ class mykoobAPI {
 	/** 
 	 * Get lessons plan
 	 * @param token Access token from authorize() method
-	 * @param config Time frame of the necessary lessons plan in "YYYY-MM-DD" format
+	 * @param config Time frame, school classes id and school user id
 	 * @returns Returns object with lessons plan
 	*/
-	public async lessonsPlan(token: string, config: definitions.lessonsPlan): Promise<any> {
+	public async lessonsPlan(token: string, config: definitions.timeFrameInfo): Promise<any> {
 
 		let response = await request({
 			method: "POST",
@@ -153,8 +180,8 @@ class mykoobAPI {
 				access_token: token,
 				date_from: config.from,
 				date_to: config.to,
-				school_classes_id: config.classesID,
-				school_user_id: config.userID
+				school_classes_id: config.schoolClassesID,
+				school_user_id: config.schoolUserID
 			}
 		})
 
@@ -204,7 +231,7 @@ class mykoobAPI {
 		})
 
 		let parsedResponse = JSON.parse(response)
-
+		
 		// Remove useless data
 		if (this.filter) {
 			return parsedResponse.unseen_events_count.activities
@@ -226,6 +253,26 @@ class mykoobAPI {
 			url: this.resourcesURL,
 			form: {
 				api: "mark_user_activities_seen",
+				access_token: token,
+			}
+		})
+		
+		return JSON.parse(response)
+	}
+
+	/**
+	 * Get info about plus services
+	 * @param token Access token from authorize() method
+	 * @returns Returns object plus services info
+	 */
+	public async plusServicesInfo(token: string): Promise<any> {
+		
+		let response = await request({
+			method: "POST",
+			timeout: this.timeout,
+			url: this.resourcesURL,
+			form: {
+				api: "plus_services",
 				access_token: token,
 			}
 		})

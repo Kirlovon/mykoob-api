@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>userActivities | Mykoob API</title>
+	<title>timeFrameInfo | Mykoob API</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="useractivities.html">userActivities</a>
+					<a href="timeframeinfo.html">timeFrameInfo</a>
 				</li>
 			</ul>
-			<h1>Interface userActivities</h1>
+			<h1>Interface timeFrameInfo</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Config for userActivities() method</p>
+						<p>Config for lessonsPlan() and userGrades() methods</p>
 					</div>
 				</div>
 			</section>
@@ -77,7 +77,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">userActivities</span>
+						<span class="target">timeFrameInfo</span>
 					</li>
 				</ul>
 			</section>
@@ -88,8 +88,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="useractivities.html#from" class="tsd-kind-icon">from</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="useractivities.html#to" class="tsd-kind-icon">to</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="timeframeinfo.html#from" class="tsd-kind-icon">from</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="timeframeinfo.html#schoolclassesid" class="tsd-kind-icon">school<wbr>ClassesID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="timeframeinfo.html#schooluserid" class="tsd-kind-icon">school<wbr>UserID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="timeframeinfo.html#to" class="tsd-kind-icon">to</a></li>
 							</ul>
 						</section>
 					</div>
@@ -103,7 +105,7 @@
 					<div class="tsd-signature tsd-kind-icon">from<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/Definitions.ts#L15">Definitions.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/88bdd46/src/Definitions.ts#L25">Definitions.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -113,12 +115,42 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="schoolclassesid" class="tsd-anchor"></a>
+					<h3>school<wbr>ClassesID</h3>
+					<div class="tsd-signature tsd-kind-icon">school<wbr>ClassesID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/88bdd46/src/Definitions.ts#L31">Definitions.ts:31</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Classes ID from userData() method</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="schooluserid" class="tsd-anchor"></a>
+					<h3>school<wbr>UserID</h3>
+					<div class="tsd-signature tsd-kind-icon">school<wbr>UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/88bdd46/src/Definitions.ts#L34">Definitions.ts:34</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>User ID from userData() method</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="to" class="tsd-anchor"></a>
 					<h3>to</h3>
 					<div class="tsd-signature tsd-kind-icon">to<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/8bb498b/src/Definitions.ts#L18">Definitions.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/MykooBot/Mykoob-API/blob/88bdd46/src/Definitions.ts#L28">Definitions.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -146,18 +178,24 @@
 						<a href="authorize.html" class="tsd-kind-icon">authorize</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="lessonsplan.html" class="tsd-kind-icon">lessons<wbr>Plan</a>
+						<a href="timeframe.html" class="tsd-kind-icon">time<wbr>Frame</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="useractivities.html" class="tsd-kind-icon">user<wbr>Activities</a>
+						<a href="timeframeinfo.html" class="tsd-kind-icon">time<wbr>Frame<wbr>Info</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="useractivities.html#from" class="tsd-kind-icon">from</a>
+								<a href="timeframeinfo.html#from" class="tsd-kind-icon">from</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="useractivities.html#to" class="tsd-kind-icon">to</a>
+								<a href="timeframeinfo.html#schoolclassesid" class="tsd-kind-icon">school<wbr>ClassesID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="timeframeinfo.html#schooluserid" class="tsd-kind-icon">school<wbr>UserID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="timeframeinfo.html#to" class="tsd-kind-icon">to</a>
 							</li>
 						</ul>
 					</li>

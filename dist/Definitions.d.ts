@@ -2,14 +2,14 @@ export interface authorize {
     readonly email: string;
     readonly password: string;
 }
-export interface userActivities {
+export interface timeFrame {
     readonly from: string;
     readonly to: string;
 }
-export interface lessonsPlan {
+export interface timeFrameInfo {
     readonly from: string;
     readonly to: string;
-    readonly classesID: number;
-    readonly userID: number;
+    readonly schoolClassesID: number;
+    readonly schoolUserID: number;
 }
 export declare type imageSize = "SMALL" | "MEDIUM";

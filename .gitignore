@@ -59,6 +59,3 @@ typings/
 
 # next.js build output
 .next
-
-# Authorization data for API testing
-mykoobAuth.json

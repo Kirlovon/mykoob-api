@@ -1,7 +1,7 @@
 {
-    "name": "mykoob-api",
-    "version": "0.6.0",
-    "description": "Rest API wrapper to work with Mykoob!",
+    "name": "renderer",
+    "version": "0.0.1",
+    "description": "Render pictures for MykooBot!",
     "main": "index.js",
     "files": [
         "dist/",
@@ -15,18 +15,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/MykooBot/Mykoob-API.git"
+        "url": "git+https://github.com/MykooBot/Renderer.git"
     },
     "author": "Kirlovon",
     "license": "MIT",
     "dependencies": {
-        "request": "^2.88.0",
-        "request-promise": "^4.2.2"
+
     },
     "devDependencies": {
         "@types/node": "^10.9.4",
-        "@types/request": "^2.47.1",
-        "@types/request-promise": "^4.1.42",
         "ts-node": "^7.0.1",
         "typedoc": "^0.12.0",
         "typescript": "^3.0.3"

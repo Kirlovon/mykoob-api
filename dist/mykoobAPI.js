@@ -106,6 +106,42 @@ class mykoobAPI {
             return JSON.parse(response);
         });
     }
+    userAttendance(token, config) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let response = yield request_promise_1.default({
+                method: "POST",
+                timeout: this.timeout,
+                url: this.resourcesURL,
+                form: {
+                    api: "user_attendance",
+                    access_token: token,
+                    date_from: config.from,
+                    date_to: config.to,
+                    school_classes_id: config.schoolClassesID,
+                    school_user_id: config.schoolUserID
+                }
+            });
+            return JSON.parse(response);
+        });
+    }
+    userAssignments(token, config) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let response = yield request_promise_1.default({
+                method: "POST",
+                timeout: this.timeout,
+                url: this.resourcesURL,
+                form: {
+                    api: "user_assignments",
+                    access_token: token,
+                    date_from: config.from,
+                    date_to: config.to,
+                    school_classes_id: config.schoolClassesID,
+                    school_user_id: config.schoolUserID
+                }
+            });
+            return JSON.parse(response);
+        });
+    }
     userActivities(token, config) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield request_promise_1.default({

@@ -116,19 +116,69 @@ class mykoobAPI {
 	}
 
 	/** 
-	 * Get user grades
+	 * Get user grades ( Mykoob Plus Only )
 	 * @param token Access token from authorize() method
 	 * @param config Time frame, school classes id and school user id
 	 * @returns Returns object with grades
 	*/
 	public async userGrades(token: string, config: definitions.timeFrameInfo) {
-		
+
 		let response = await request({
 			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			form: {
 				api: "user_grades",
+				access_token: token,
+				date_from: config.from,
+				date_to: config.to,
+				school_classes_id: config.schoolClassesID,
+				school_user_id: config.schoolUserID
+			}
+		})
+
+		return JSON.parse(response)
+	}
+
+	/** 
+	 * Get user attendance ( Mykoob Plus Only )
+	 * @param token Access token from authorize() method
+	 * @param config Time frame, school classes id and school user id
+	 * @returns Returns object with attendance
+	*/
+	public async userAttendance(token: string, config: definitions.timeFrameInfo) {
+
+		let response = await request({
+			method: "POST",
+			timeout: this.timeout,
+			url: this.resourcesURL,
+			form: {
+				api: "user_attendance",
+				access_token: token,
+				date_from: config.from,
+				date_to: config.to,
+				school_classes_id: config.schoolClassesID,
+				school_user_id: config.schoolUserID
+			}
+		})
+
+		return JSON.parse(response)
+	}
+
+	/** 
+	 * Get user assignments ( Mykoob Plus Only )
+	 * @param token Access token from authorize() method
+	 * @param config Time frame, school classes id and school user id
+	 * @returns Returns object with assignments
+	*/
+	public async userAssignments(token: string, config: definitions.timeFrameInfo) {
+
+		let response = await request({
+			method: "POST",
+			timeout: this.timeout,
+			url: this.resourcesURL,
+			form: {
+				api: "user_assignments",
 				access_token: token,
 				date_from: config.from,
 				date_to: config.to,
@@ -231,7 +281,7 @@ class mykoobAPI {
 		})
 
 		let parsedResponse = JSON.parse(response)
-		
+
 		// Remove useless data
 		if (this.filter) {
 			return parsedResponse.unseen_events_count.activities
@@ -256,7 +306,7 @@ class mykoobAPI {
 				access_token: token,
 			}
 		})
-		
+
 		return JSON.parse(response)
 	}
 
@@ -266,7 +316,7 @@ class mykoobAPI {
 	 * @returns Returns object plus services info
 	 */
 	public async plusServicesInfo(token: string): Promise<any> {
-		
+
 		let response = await request({
 			method: "POST",
 			timeout: this.timeout,

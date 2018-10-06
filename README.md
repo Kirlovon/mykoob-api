@@ -29,10 +29,8 @@ npm install MykooBot/Mykoob-API --save
 - Receiving number of unseen events
 - Mark events as seen
 - Receiving info about Mykoob Plus
+- Attendance receiving _( Mykoob Plus Only )_
+- Homework receiving _( Mykoob Plus Only )_
 - Grades receiving _( Mykoob Plus Only )_
-
-## To-Do
-- Attendance receiving
-- Homework receiving
 
 _This Wrapper supports only the basic functionality of Mykoob REST Api. I do not plan to add support for something more specific, like chats._

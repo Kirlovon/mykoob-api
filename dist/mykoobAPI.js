@@ -100,7 +100,8 @@ class mykoobAPI {
                     date_from: config.from,
                     date_to: config.to,
                     school_classes_id: config.schoolClassesID,
-                    school_user_id: config.schoolUserID
+                    school_user_id: config.schoolUserID,
+                    sorting_type: config.sortingType
                 }
             });
             return JSON.parse(response);
@@ -118,7 +119,8 @@ class mykoobAPI {
                     date_from: config.from,
                     date_to: config.to,
                     school_classes_id: config.schoolClassesID,
-                    school_user_id: config.schoolUserID
+                    school_user_id: config.schoolUserID,
+                    sorting_type: config.sortingType
                 }
             });
             return JSON.parse(response);
@@ -136,7 +138,8 @@ class mykoobAPI {
                     date_from: config.from,
                     date_to: config.to,
                     school_classes_id: config.schoolClassesID,
-                    school_user_id: config.schoolUserID
+                    school_user_id: config.schoolUserID,
+                    sorting_type: config.sortingType
                 }
             });
             return JSON.parse(response);

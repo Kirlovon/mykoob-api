@@ -118,10 +118,10 @@ class mykoobAPI {
 	/** 
 	 * Get user grades ( Mykoob Plus Only )
 	 * @param token Access token from authorize() method
-	 * @param config Time frame, school classes id and school user id
+	 * @param config Time frame, sorting type, school classes id and school user id
 	 * @returns Returns object with grades
 	*/
-	public async userGrades(token: string, config: definitions.timeFrameInfo) {
+	public async userGrades(token: string, config: definitions.timeFrameWithSortingType) {
 
 		let response = await request({
 			method: "POST",
@@ -133,7 +133,8 @@ class mykoobAPI {
 				date_from: config.from,
 				date_to: config.to,
 				school_classes_id: config.schoolClassesID,
-				school_user_id: config.schoolUserID
+				school_user_id: config.schoolUserID,
+				sorting_type: config.sortingType
 			}
 		})
 
@@ -143,10 +144,10 @@ class mykoobAPI {
 	/** 
 	 * Get user attendance ( Mykoob Plus Only )
 	 * @param token Access token from authorize() method
-	 * @param config Time frame, school classes id and school user id
+	 * @param config Time frame, sorting type, school classes id and school user id
 	 * @returns Returns object with attendance
 	*/
-	public async userAttendance(token: string, config: definitions.timeFrameInfo) {
+	public async userAttendance(token: string, config: definitions.timeFrameWithSortingType) {
 
 		let response = await request({
 			method: "POST",
@@ -158,7 +159,8 @@ class mykoobAPI {
 				date_from: config.from,
 				date_to: config.to,
 				school_classes_id: config.schoolClassesID,
-				school_user_id: config.schoolUserID
+				school_user_id: config.schoolUserID,
+				sorting_type: config.sortingType
 			}
 		})
 
@@ -168,10 +170,10 @@ class mykoobAPI {
 	/** 
 	 * Get user assignments ( Mykoob Plus Only )
 	 * @param token Access token from authorize() method
-	 * @param config Time frame, school classes id and school user id
+	 * @param config Time frame, sorting type, school classes id and school user id
 	 * @returns Returns object with assignments
 	*/
-	public async userAssignments(token: string, config: definitions.timeFrameInfo) {
+	public async userAssignments(token: string, config: definitions.timeFrameWithSortingType) {
 
 		let response = await request({
 			method: "POST",
@@ -183,7 +185,8 @@ class mykoobAPI {
 				date_from: config.from,
 				date_to: config.to,
 				school_classes_id: config.schoolClassesID,
-				school_user_id: config.schoolUserID
+				school_user_id: config.schoolUserID,
+				sorting_type: config.sortingType
 			}
 		})
 
@@ -219,7 +222,7 @@ class mykoobAPI {
 	 * @param config Time frame, school classes id and school user id
 	 * @returns Returns object with lessons plan
 	*/
-	public async lessonsPlan(token: string, config: definitions.timeFrameInfo): Promise<any> {
+	public async lessonsPlan(token: string, config: definitions.timeFrameWithInfo): Promise<any> {
 
 		let response = await request({
 			method: "POST",

@@ -18,8 +18,8 @@ export interface timeFrame {
 	readonly to: string
 }
 
-/** Config for lessonsPlan() and userGrades() methods */
-export interface timeFrameInfo {
+/** Config for lessonsPlan() method */
+export interface timeFrameWithInfo {
 
 	/** Beginning of time frame in "YYYY-MM-DD" format */
 	readonly from: string
@@ -32,6 +32,26 @@ export interface timeFrameInfo {
 
 	/** User ID from userData() method */
 	readonly schoolUserID: number
+}
+
+/** Config for userGrades(), userAttendance() and userAssignments() methods */
+export interface timeFrameWithSortingType {
+
+	/** Beginning of time frame in "YYYY-MM-DD" format */
+	readonly from: string
+
+	/** Ending of time frame in "YYYY-MM-DD" format */
+	readonly to: string
+
+	/** Classes ID from userData() method */
+	readonly schoolClassesID: number
+
+	/** User ID from userData() method */
+	readonly schoolUserID: number
+
+	/** Sorting type ( 1 - by order, 0 - by execution ) */
+	readonly sortingType: 0 | 1
+
 }
 
 /** Image size for userProfileImage() method */

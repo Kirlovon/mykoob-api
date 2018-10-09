@@ -17,4 +17,4 @@ declare class mykoobAPI {
     markAsSeen(token: string): Promise<any>;
     plusServicesInfo(token: string): Promise<any>;
 }
-export default mykoobAPI;
+export = mykoobAPI;

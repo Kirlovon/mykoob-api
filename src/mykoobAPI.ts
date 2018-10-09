@@ -336,4 +336,4 @@ class mykoobAPI {
 }
 
 /** Class export */
-export default mykoobAPI
+export = mykoobAPI

@@ -1,7 +1,6 @@
 /** Dependencies */
 import qs from "qs"
 import axios from "axios"
-import request from "request-promise"
 
 /** Definitions */
 import * as definitions from "./definitions"

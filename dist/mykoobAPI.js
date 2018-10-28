@@ -48,15 +48,10 @@ class mykoobAPI {
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
                     api: "all_device_apis_detailed",
-                    access_token: token,
+                    access_token: token
                 })
             });
             if (this.filter) {
-                for (let index in response) {
-                    delete response.data[index].in;
-                    delete response.data[index].out;
-                    delete response.data[index].errors;
-                }
                 delete response.data.register_device;
                 delete response.data.unregister_device;
                 delete response.data.notification_settings;

@@ -1,6 +1,6 @@
 {
     "name": "mykoob-api",
-    "version": "0.9.8",
+    "version": "1.0.0",
     "description": "Rest API wrapper to work with Mykoob!",
     "main": "index.js",
     "files": [
@@ -11,7 +11,8 @@
     "scripts": {
         "build": "tsc",
         "dev": "tsc --watch",
-        "docs": "typedoc --options typedoc.json ./src"
+		"docs": "typedoc --options typedoc.json ./src",
+		"test": "node ./test/test.js"
     },
     "repository": {
         "type": "git",

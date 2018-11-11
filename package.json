@@ -1,34 +1,34 @@
 {
-    "name": "mykoob-api",
-    "version": "1.0.0",
-    "description": "Rest API wrapper to work with Mykoob!",
-    "main": "index.js",
-    "files": [
-        "dist/",
-        "index.js",
-        "LICENSE"
-    ],
-    "scripts": {
-        "build": "tsc",
-        "dev": "tsc --watch",
+	"name": "mykoob-api",
+	"version": "1.0.5",
+	"description": "Rest API wrapper to work with Mykoob!",
+	"main": "index.js",
+	"files": [
+		"dist/",
+		"index.js",
+		"LICENSE"
+	],
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
 		"docs": "typedoc --options typedoc.json ./src",
 		"test": "node ./test/test.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/MykooBot/Mykoob-API.git"
-    },
-    "author": "Kirlovon",
-    "license": "MIT",
-    "dependencies": {
-        "axios": "^0.18.0",
-        "qs": "^6.5.2"
-    },
-    "devDependencies": {
-        "@types/node": "^10.9.4",
-        "@types/qs": "^6.5.1",
-        "ts-node": "^7.0.1",
-        "typedoc": "^0.12.0",
-        "typescript": "^3.0.3"
-    }
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MykooBot/Mykoob-API.git"
+	},
+	"author": "Kirlovon",
+	"license": "MIT",
+	"dependencies": {
+		"axios": "^0.18.0",
+		"qs": "^6.5.2"
+	},
+	"devDependencies": {
+		"@types/node": "^10.9.4",
+		"@types/qs": "^6.5.1",
+		"ts-node": "^7.0.1",
+		"typedoc": "^0.12.0",
+		"typescript": "^3.0.3"
+	}
 }

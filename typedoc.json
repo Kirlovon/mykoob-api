@@ -1,7 +1,7 @@
 {
-    "out": "./docs",
-    "theme": "default",
-    "name": "Mykoob API",
-    "mode": "file",
-    "readme": "./README.md"
+	"out": "./docs",
+	"theme": "default",
+	"name": "Mykoob API",
+	"mode": "file",
+	"readme": "./README.md"
 }

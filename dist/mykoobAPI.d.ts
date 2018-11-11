@@ -1,4 +1,4 @@
-import * as definitions from "./definitions";
+import * as definitions from './definitions';
 declare class mykoobAPI {
     timeout: number;
     filter: boolean;

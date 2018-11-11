@@ -16,21 +16,21 @@ class mykoobAPI {
     constructor() {
         this.timeout = 10000;
         this.filter = true;
-        this.resourcesURL = "https://www.mykoob.lv/?api/resource";
-        this.authorizationURL = "https://www.mykoob.lv/?oauth2/authorizeDevice";
+        this.resourcesURL = 'https://www.mykoob.lv/?api/resource';
+        this.authorizationURL = 'https://www.mykoob.lv/?oauth2/authorizeDevice';
     }
     authorize(data) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.authorizationURL,
                 data: qs_1.default.stringify({
                     use_oauth_proxy: 1,
-                    client: "MykoobMobile",
+                    client: 'MykoobMobile',
                     username: data.email,
-                    password: data.password
-                })
+                    password: data.password,
+                }),
             });
             if (this.filter) {
                 delete response.data.token_type;
@@ -43,13 +43,13 @@ class mykoobAPI {
     apisDetailed(token) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
-                    api: "all_device_apis_detailed",
-                    access_token: token
-                })
+                    api: 'all_device_apis_detailed',
+                    access_token: token,
+                }),
             });
             if (this.filter) {
                 delete response.data.register_device;
@@ -62,13 +62,13 @@ class mykoobAPI {
     userData(token) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
-                    api: "user_data",
+                    api: 'user_data',
                     access_token: token,
-                })
+                }),
             });
             if (this.filter) {
                 delete response.data.user_data.plus_ends;
@@ -83,18 +83,18 @@ class mykoobAPI {
     userGrades(token, config) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
-                    api: "user_grades",
+                    api: 'user_grades',
                     access_token: token,
                     date_from: config.from,
                     date_to: config.to,
                     school_classes_id: config.schoolClassesID,
                     school_user_id: config.schoolUserID,
-                    sorting_type: config.sortingType
-                })
+                    sorting_type: config.sortingType,
+                }),
             });
             return response.data;
         });
@@ -102,18 +102,18 @@ class mykoobAPI {
     userAttendance(token, config) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
-                    api: "user_attendance",
+                    api: 'user_attendance',
                     access_token: token,
                     date_from: config.from,
                     date_to: config.to,
                     school_classes_id: config.schoolClassesID,
                     school_user_id: config.schoolUserID,
-                    sorting_type: config.sortingType
-                })
+                    sorting_type: config.sortingType,
+                }),
             });
             return response.data;
         });
@@ -121,18 +121,18 @@ class mykoobAPI {
     userAssignments(token, config) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
-                    api: "user_assignments",
+                    api: 'user_assignments',
                     access_token: token,
                     date_from: config.from,
                     date_to: config.to,
                     school_classes_id: config.schoolClassesID,
                     school_user_id: config.schoolUserID,
-                    sorting_type: config.sortingType
-                })
+                    sorting_type: config.sortingType,
+                }),
             });
             return response.data;
         });
@@ -140,15 +140,15 @@ class mykoobAPI {
     userActivities(token, config) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
-                    api: "user_activities",
+                    api: 'user_activities',
                     access_token: token,
                     date_from: config.from,
-                    date_to: config.to
-                })
+                    date_to: config.to,
+                }),
             });
             return response.data;
         });
@@ -156,17 +156,17 @@ class mykoobAPI {
     lessonsPlan(token, config) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
-                    api: "user_lessonsplan",
+                    api: 'user_lessonsplan',
                     access_token: token,
                     date_from: config.from,
                     date_to: config.to,
                     school_classes_id: config.schoolClassesID,
-                    school_user_id: config.schoolUserID
-                })
+                    school_user_id: config.schoolUserID,
+                }),
             });
             return response.data;
         });
@@ -174,17 +174,17 @@ class mykoobAPI {
     userProfileImage(token, size) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
-                    api: "user_profile_image",
+                    api: 'user_profile_image',
                     access_token: token,
                     own_image: true,
                     use_base64: true,
                     dont_use_json: false,
-                    image_size: size
-                })
+                    image_size: size,
+                }),
             });
             return response.data;
         });
@@ -192,13 +192,13 @@ class mykoobAPI {
     unseenEvents(token) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
-                    api: "unseen_events_count",
+                    api: 'unseen_events_count',
                     access_token: token,
-                })
+                }),
             });
             if (this.filter) {
                 return response.data.unseen_events_count.activities;
@@ -209,13 +209,13 @@ class mykoobAPI {
     markAsSeen(token) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
-                    api: "mark_user_activities_seen",
+                    api: 'mark_user_activities_seen',
                     access_token: token,
-                })
+                }),
             });
             return response.data;
         });
@@ -223,13 +223,13 @@ class mykoobAPI {
     plusServicesInfo(token) {
         return __awaiter(this, void 0, void 0, function* () {
             let response = yield axios_1.default({
-                method: "POST",
+                method: 'POST',
                 timeout: this.timeout,
                 url: this.resourcesURL,
                 data: qs_1.default.stringify({
-                    api: "plus_services",
+                    api: 'plus_services',
                     access_token: token,
-                })
+                }),
             });
             return response.data;
         });

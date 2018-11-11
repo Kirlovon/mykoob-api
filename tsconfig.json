@@ -1,19 +1,15 @@
 {
-    "compilerOptions": {
-        "target": "ES2015",
-        "module": "commonjs",
-        "lib": ["es2015"],
-        "declaration": true,
-        "outDir": "./dist",
-        "rootDir": "./src",
-        "removeComments": true,
-        "strict": true,
-        "esModuleInterop": true,
-    },
+	"compilerOptions": {
+		"target": "ES2015",
+		"module": "commonjs",
+		"lib": ["es2015"],
+		"declaration": true,
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"removeComments": true,
+		"strict": true,
+		"esModuleInterop": true
+	},
 
-    "exclude": [
-        "node_modules",
-        "dist",
-		"docs"
-    ]
+	"exclude": ["node_modules", "dist", "docs"]
 }

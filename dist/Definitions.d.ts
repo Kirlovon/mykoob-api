@@ -19,4 +19,4 @@ export interface timeFrameWithSortingType {
     readonly schoolUserID: number;
     readonly sortingType: 0 | 1;
 }
-export declare type imageSize = "SMALL" | "MEDIUM";
+export declare type imageSize = 'SMALL' | 'MEDIUM';

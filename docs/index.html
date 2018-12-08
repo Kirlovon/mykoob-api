@@ -76,6 +76,35 @@
 				<p>Mykoob API is a basic Node.js module that allows you to interact with the Mykoob very easily! This library wraps the Mykoob REST Api, which is used by Mykoob mobile app, so some features available only for the Mykoob Plus subscribers!</p>
 				<h2 id="installation">Installation</h2>
 				<pre><code>npm <span class="hljs-keyword">install</span> mykoob-api <span class="hljs-comment">--save</span></code></pre><h6 id="documentation-here-"><a href="https://kirlovon.github.io/Mykoob-API">Documentation here!</a></h6>
+				<h2 id="example">Example</h2>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> mykoobAPI = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mykoob-api'</span>);
+<span class="hljs-keyword">const</span> api = <span class="hljs-keyword">new</span> mykoobAPI();
+
+api.filter = <span class="hljs-literal">false</span>; <span class="hljs-comment">// Removes from responses unnecessary data</span>
+api.timeout = <span class="hljs-number">10000</span>; <span class="hljs-comment">// Requests timeout</span>
+
+<span class="hljs-comment">// Self-executing async function</span>
+(<span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-comment">// Get access token and other authorization data</span>
+    <span class="hljs-keyword">const</span> auth = <span class="hljs-keyword">await</span> api.authorize({
+        <span class="hljs-attr">email</span>: <span class="hljs-string">'email@outlook.com'</span>,
+        <span class="hljs-attr">password</span>: <span class="hljs-string">'qwerty123'</span>,
+    });
+
+    <span class="hljs-comment">// Get profile image in base64</span>
+    <span class="hljs-keyword">const</span> profileImage = <span class="hljs-keyword">await</span> api.userProfileImage(auth.access_token, <span class="hljs-string">'SMALL'</span>);
+
+    <span class="hljs-comment">// Get user data</span>
+    <span class="hljs-keyword">const</span> userData = <span class="hljs-keyword">await</span> api.userData(auth.access_token);
+
+    <span class="hljs-comment">// Get user activities</span>
+    <span class="hljs-keyword">const</span> userActivities = <span class="hljs-keyword">await</span> api.userActivities(auth.access_token, {
+        <span class="hljs-attr">from</span>: <span class="hljs-string">'2018-10-10'</span>,
+        <span class="hljs-attr">to</span>: <span class="hljs-string">'2018-10-20'</span>,
+        <span class="hljs-attr">schoolClassesID</span>: userData.user_data.user[<span class="hljs-number">0</span>].school[<span class="hljs-number">0</span>].class[<span class="hljs-number">0</span>].school_classes_id,
+        <span class="hljs-attr">schoolUserID</span>: userData.user_data.user[<span class="hljs-number">0</span>].school[<span class="hljs-number">0</span>].school_user_id,
+    });
+})();</code></pre>
 				<h2 id="features">Features</h2>
 				<ul>
 					<li>Authorization <em>( Access token receiving )</em></li>

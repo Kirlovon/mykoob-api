@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://Kirlovon.github.io/Mykoob-API/logo/logo.svg" width="900">
+	<img src="https://raw.githubusercontent.com/Kirlovon/Mykoob-API/master/logo/logo.png" width="900" height="300">
 </p>
 
 <p align="center">

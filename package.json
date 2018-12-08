@@ -1,12 +1,19 @@
 {
 	"name": "mykoob-api",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "Rest API wrapper to work with Mykoob!",
 	"main": "index.js",
 	"files": [
 		"dist/",
 		"index.js",
 		"LICENSE"
+	],
+	"keywords": [
+		"api",
+		"rest",
+		"mykoob",
+		"rest-api",
+		"wrapper"
 	],
 	"scripts": {
 		"build": "tsc",

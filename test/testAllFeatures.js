@@ -18,14 +18,14 @@ const api = new mykoobAPI();
 	console.log(apisDetailed);
 	console.log('--------------------------------');
 
-	// userData test
+	// userData() test
 	console.time('userData Request');
 	var userData = await api.userData(auth.access_token);
 	console.timeEnd('userData Request');
 	console.log(userData);
 	console.log('--------------------------------');
 
-	// userGrades test
+	// userGrades() test
 	console.time('userGrades Request');
 	var userGrades = await api.userGrades(auth.access_token, {
 		from: '2018-10-10',
@@ -38,7 +38,7 @@ const api = new mykoobAPI();
 	console.log(userGrades);
 	console.log('--------------------------------');
 
-	// userAttendance test
+	// userAttendance() test
 	console.time('userAttendance Request');
 	var userAttendance = await api.userAttendance(auth.access_token, {
 		from: '2018-10-10',
@@ -51,7 +51,7 @@ const api = new mykoobAPI();
 	console.log(userAttendance);
 	console.log('--------------------------------');
 
-	// userActivities test
+	// userActivities() test
 	console.time('userActivities Request');
 	var userActivities = await api.userActivities(auth.access_token, {
 		from: '2018-10-10',
@@ -63,7 +63,7 @@ const api = new mykoobAPI();
 	console.log(userActivities);
 	console.log('--------------------------------');
 
-	// lessonsPlan test
+	// lessonsPlan() test
 	console.time('lessonsPlan Request');
 	var lessonsPlan = await api.lessonsPlan(auth.access_token, {
 		from: '2018-10-10',
@@ -75,28 +75,28 @@ const api = new mykoobAPI();
 	console.log(lessonsPlan);
 	console.log('--------------------------------');
 
-	// userProfileImage test
+	// userProfileImage() test
 	console.time('userProfileImage Request');
 	var userProfileImage = await api.userProfileImage(auth.access_token, 'SMALL');
 	console.timeEnd('userProfileImage Request');
 	console.log(userProfileImage);
 	console.log('--------------------------------');
 
-	// unseenEvents test
+	// unseenEvents() test
 	console.time('unseenEvents Request');
 	var unseenEvents = await api.unseenEvents(auth.access_token);
 	console.timeEnd('unseenEvents Request');
 	console.log(unseenEvents);
 	console.log('--------------------------------');
 
-	// markAsSeen test
+	// markAsSeen() test
 	console.time('markAsSeen Request');
 	var markAsSeen = await api.markAsSeen(auth.access_token);
 	console.timeEnd('markAsSeen Request');
 	console.log(markAsSeen);
 	console.log('--------------------------------');
 
-	// plusServicesInfo test
+	// plusServicesInfo() test
 	console.time('plusServicesInfo Request');
 	var plusServicesInfo = await api.plusServicesInfo(auth.access_token);
 	console.timeEnd('plusServicesInfo Request');

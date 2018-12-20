@@ -1,0 +1,19 @@
+{
+	"defaultSeverity": "warn",
+	"extends": [
+		"tslint:recommended"
+	],
+	"rules": {
+		"class-name": false,
+		"indent": [
+			true,
+			"tabs",
+			2
+		],
+		"interface-name": [
+			true,
+			"never-prefix"
+		],
+		"object-literal-sort-keys": false
+	}
+}

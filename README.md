@@ -18,8 +18,6 @@ Mykoob API is a basic Node.js module that allows you to interact with the Mykoob
 npm install mykoob-api --save
 ```
 
-###### [Documentation here!](https://kirlovon.github.io/Mykoob-API)
-
 ## Example
 
 ```javascript

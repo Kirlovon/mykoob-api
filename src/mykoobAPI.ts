@@ -1,9 +1,9 @@
 /** Dependencies */
-import qs from 'qs';
-import axios from 'axios';
+import axios from "axios";
+import qs from "qs";
 
 /** Definitions */
-import * as definitions from './definitions';
+import * as definitions from "./definitions";
 
 /** Rest API wrapper to work with Mykoob! */
 class mykoobAPI {
@@ -14,10 +14,10 @@ class mykoobAPI {
 	public filter: boolean = true;
 
 	/** URL for Mykoob Resources API */
-	private resourcesURL: string = 'https://www.mykoob.lv/?api/resource';
+	private resourcesURL: string = "https://www.mykoob.lv/?api/resource";
 
 	/** URL for Mykoob Authorization API */
-	private authorizationURL: string = 'https://www.mykoob.lv/?oauth2/authorizeDevice';
+	private authorizationURL: string = "https://www.mykoob.lv/?oauth2/authorizeDevice";
 
 	/**
 	 * Get mykoob access token
@@ -25,13 +25,13 @@ class mykoobAPI {
 	 * @returns Returns object with access token and authorization status
 	 */
 	public async authorize(data: definitions.authorize): Promise<any> {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.authorizationURL,
 			data: qs.stringify({
 				use_oauth_proxy: 1,
-				client: 'MykoobMobile',
+				client: "MykoobMobile",
 				username: data.email,
 				password: data.password,
 			}),
@@ -53,12 +53,12 @@ class mykoobAPI {
 	 * @returns Returns object with available api's
 	 */
 	public async apisDetailed(token: string): Promise<any> {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			data: qs.stringify({
-				api: 'all_device_apis_detailed',
+				api: "all_device_apis_detailed",
 				access_token: token,
 			}),
 		});
@@ -79,12 +79,12 @@ class mykoobAPI {
 	 * @returns Returns object with all data about user
 	 */
 	public async userData(token: string): Promise<any> {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			data: qs.stringify({
-				api: 'user_data',
+				api: "user_data",
 				access_token: token,
 			}),
 		});
@@ -108,12 +108,12 @@ class mykoobAPI {
 	 * @returns Returns object with grades
 	 */
 	public async userGrades(token: string, config: definitions.timeFrameWithSortingType) {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			data: qs.stringify({
-				api: 'user_grades',
+				api: "user_grades",
 				access_token: token,
 				date_from: config.from,
 				date_to: config.to,
@@ -133,12 +133,12 @@ class mykoobAPI {
 	 * @returns Returns object with attendance
 	 */
 	public async userAttendance(token: string, config: definitions.timeFrameWithSortingType) {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			data: qs.stringify({
-				api: 'user_attendance',
+				api: "user_attendance",
 				access_token: token,
 				date_from: config.from,
 				date_to: config.to,
@@ -158,12 +158,12 @@ class mykoobAPI {
 	 * @returns Returns object with assignments
 	 */
 	public async userAssignments(token: string, config: definitions.timeFrameWithSortingType) {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			data: qs.stringify({
-				api: 'user_assignments',
+				api: "user_assignments",
 				access_token: token,
 				date_from: config.from,
 				date_to: config.to,
@@ -183,12 +183,12 @@ class mykoobAPI {
 	 * @returns Returns object with all user activities
 	 */
 	public async userActivities(token: string, config: definitions.timeFrame): Promise<any> {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			data: qs.stringify({
-				api: 'user_activities',
+				api: "user_activities",
 				access_token: token,
 				date_from: config.from,
 				date_to: config.to,
@@ -205,12 +205,12 @@ class mykoobAPI {
 	 * @returns Returns object with lessons plan
 	 */
 	public async lessonsPlan(token: string, config: definitions.timeFrameWithInfo): Promise<any> {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			data: qs.stringify({
-				api: 'user_lessonsplan',
+				api: "user_lessonsplan",
 				access_token: token,
 				date_from: config.from,
 				date_to: config.to,
@@ -229,12 +229,12 @@ class mykoobAPI {
 	 * @returns Returns image in base64 format
 	 */
 	public async userProfileImage(token: string, size: definitions.imageSize): Promise<any> {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			data: qs.stringify({
-				api: 'user_profile_image',
+				api: "user_profile_image",
 				access_token: token,
 				own_image: true,
 				use_base64: true,
@@ -252,12 +252,12 @@ class mykoobAPI {
 	 * @returns Returns number of unseen events
 	 */
 	public async unseenEvents(token: string): Promise<any> {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			data: qs.stringify({
-				api: 'unseen_events_count',
+				api: "unseen_events_count",
 				access_token: token,
 			}),
 		});
@@ -276,12 +276,12 @@ class mykoobAPI {
 	 * @returns Action status
 	 */
 	public async markAsSeen(token: string): Promise<any> {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			data: qs.stringify({
-				api: 'mark_user_activities_seen',
+				api: "mark_user_activities_seen",
 				access_token: token,
 			}),
 		});
@@ -295,12 +295,12 @@ class mykoobAPI {
 	 * @returns Returns object plus services info
 	 */
 	public async plusServicesInfo(token: string): Promise<any> {
-		let response = await axios({
-			method: 'POST',
+		const response = await axios({
+			method: "POST",
 			timeout: this.timeout,
 			url: this.resourcesURL,
 			data: qs.stringify({
-				api: 'plus_services',
+				api: "plus_services",
 				access_token: token,
 			}),
 		});

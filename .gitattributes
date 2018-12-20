@@ -1,0 +1,5 @@
+test/ linguist-vendored
+lib/ linguist-vendored
+*.js linguist-vendored
+*.json linguist-vendored
+*.svg linguist-vendored

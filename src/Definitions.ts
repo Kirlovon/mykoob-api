@@ -1,5 +1,6 @@
 /** Authorization data */
 export interface authorize {
+
 	/** Authorization Email */
 	readonly email: string;
 
@@ -9,6 +10,7 @@ export interface authorize {
 
 /** Config for userActivities() method */
 export interface timeFrame {
+
 	/** Beginning of time frame in "YYYY-MM-DD" format */
 	readonly from: string;
 
@@ -18,6 +20,7 @@ export interface timeFrame {
 
 /** Config for lessonsPlan() method */
 export interface timeFrameWithInfo {
+
 	/** Beginning of time frame in "YYYY-MM-DD" format */
 	readonly from: string;
 
@@ -33,6 +36,7 @@ export interface timeFrameWithInfo {
 
 /** Config for userGrades(), userAttendance() and userAssignments() methods */
 export interface timeFrameWithSortingType {
+
 	/** Beginning of time frame in "YYYY-MM-DD" format */
 	readonly from: string;
 
@@ -50,4 +54,4 @@ export interface timeFrameWithSortingType {
 }
 
 /** Image size for userProfileImage() method */
-export type imageSize = 'SMALL' | 'MEDIUM';
+export type imageSize = "SMALL" | "MEDIUM";

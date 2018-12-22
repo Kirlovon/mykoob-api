@@ -3,9 +3,10 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/Kirlovon/Mykoob-API/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Kirlovon/Mykoob-API.svg" alt="License"></a>
-	<a href="https://github.com/Kirlovon/Mykoob-API/blob/master/package.json"><img src="https://img.shields.io/github/package-json/v/Kirlovon/Mykoob-API.svg" alt="Package version"></a>
-	<a href="https://github.com/Kirlovon/Mykoob-API/commits/master"><img src="https://img.shields.io/github/last-commit/Kirlovon/Mykoob-API.svg" alt="Last commit"></a>
+	<img src="https://img.shields.io/github/license/Kirlovon/Mykoob-API.svg" alt="License">
+	<img src="https://img.shields.io/github/last-commit/Kirlovon/Mykoob-API.svg" alt="Last commit">
+	<img src="https://img.shields.io/npm/v/mykoob-api.svg" alt="NPM version">
+	<img src="https://img.shields.io/npm/types/mykoob-api.svg" alt="Types">
 </p>
 
 ## About
@@ -29,6 +30,7 @@ api.timeout = 10000; // Requests timeout
 
 // Self-executing async function
 (async () => {
+	
 	// Get access token and other authorization data
 	const auth = await api.authorize({
 		email: 'email@outlook.com',

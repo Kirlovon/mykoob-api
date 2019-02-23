@@ -1,5 +1,5 @@
-import * as definitions from './definitions';
-declare class mykoobAPI {
+import * as definitions from "./definitions";
+declare class MykoobAPI {
     timeout: number;
     filter: boolean;
     private resourcesURL;
@@ -17,4 +17,4 @@ declare class mykoobAPI {
     markAsSeen(token: string): Promise<any>;
     plusServicesInfo(token: string): Promise<any>;
 }
-export = mykoobAPI;
+export = MykoobAPI;

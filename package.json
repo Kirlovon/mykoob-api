@@ -1,11 +1,12 @@
 {
 	"name": "mykoob-api",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "Rest API wrapper to work with Mykoob!",
 	"main": "index.js",
 	"files": [
 		"lib/",
 		"index.js",
+		"tsconfig.json",
 		"LICENSE"
 	],
 	"keywords": [
@@ -17,9 +18,9 @@
 	],
 	"scripts": {
 		"build": "tsc",
-		"dev": "tsc --watch",
 		"lint": "tslint --fix src/**/*.ts",
-		"test": "node ./test/testAllFeatures.js"
+		"test": "node ./test/testAPI.js",
+		"doc": "typedoc --options ./typedoc.json ./src"
 	},
 	"repository": {
 		"type": "git",
@@ -36,6 +37,7 @@
 		"@types/qs": "^6.5.1",
 		"ts-node": "^7.0.1",
 		"tslint": "^5.11.0",
+		"typedoc": "^0.14.2",
 		"typescript": "^3.0.3"
 	}
 }

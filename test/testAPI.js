@@ -1,5 +1,5 @@
 const mykoobAuth = require('./mykoobAuth.json');
-const mykoobAPI = require('../dist/mykoobAPI');
+const mykoobAPI = require('../lib/mykoobAPI');
 const api = new mykoobAPI();
 
 (async () => {

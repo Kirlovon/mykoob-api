@@ -1,12 +1,11 @@
-/** Dependencies */
 import axios from "axios";
 import qs from "qs";
 
-/** Definitions */
 import * as definitions from "./definitions";
 
-/** Rest API wrapper to work with Mykoob! */
-class mykoobAPI {
+/** Rest API Client for Mykoob! */
+class MykoobAPI {
+
 	/** Requests timeout */
 	public timeout: number = 10000;
 
@@ -309,5 +308,5 @@ class mykoobAPI {
 	}
 }
 
-/** Class export */
-export = mykoobAPI;
+// Class export
+export = MykoobAPI;

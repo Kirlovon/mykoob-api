@@ -1,0 +1,11 @@
+{
+	"out": "./docs",
+	"mode": "file",
+	"name": "Mykoob API",
+	"readme": "./README.md",
+	"module": "commonjs",
+	"target": "ES6",
+	"theme": "default",
+	"excludeExternals": true,
+	"includeDeclarations": true
+}

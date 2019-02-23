@@ -9,6 +9,10 @@
 	<img src="https://img.shields.io/npm/types/mykoob-api.svg" alt="Types">
 </p>
 
+<h4 align="center">
+	<a href="https://kirlovon.github.io/Mykoob-API/">📚 Documentation<a>
+</p>
+
 ## About
 
 Mykoob API is a basic Node.js module that allows you to interact with the Mykoob very easily! This library wraps the Mykoob REST Api, which is used by Mykoob mobile app, so some features available only for the Mykoob Plus subscribers!

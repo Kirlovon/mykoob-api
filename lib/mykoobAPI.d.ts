@@ -1,12 +1,16 @@
-import { RequestConfig } from './declarations';
+import { RequestConfig, AuthorizationConfig, AuthentificationData } from './definitions';
 declare class MykoobAPI {
     email?: string;
     password?: string;
     accessToken?: string;
     timeout: number;
-    private resourcesURL;
-    private authorizationURL;
+    private readonly resourcesURL;
+    private readonly authorizationURL;
     constructor(config?: RequestConfig);
-    authorize(config?: RequestConfig): Promise<any>;
+    getAuthentificationData(config?: AuthorizationConfig): Promise<AuthentificationData>;
+    private getTimeout;
+    private getEmail;
+    private getPassword;
+    private getAccessToken;
 }
 export = MykoobAPI;

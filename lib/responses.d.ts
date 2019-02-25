@@ -171,3 +171,46 @@ export interface LessonsPlanResponse {
     };
     data_hash: string;
 }
+export interface UserActivitiesResponse {
+    activities: {
+        activity: {
+            code: string;
+            event_date: string;
+            discipline_name: string;
+            lesson_type: string;
+            user_name: string;
+            content_value: string;
+            visited_yn: boolean;
+            activity_id: number;
+            creation_date: string;
+            actor_id: number;
+            seen: boolean;
+        }[] | {
+            code: string;
+            event_date: string;
+            discipline_name: string;
+            grade_value: string;
+            lesson_type: string;
+            user_name: string;
+            visited_yn: boolean;
+            activity_id: number;
+            creation_date: string;
+            actor_id: number;
+            seen: boolean;
+        }[] | {
+            code: string;
+            event_date: string;
+            discipline_name: string;
+            user_name: string;
+            visited_yn: boolean;
+            activity_id: number;
+            creation_date: string;
+            attendance_type: string;
+            actor_id: number;
+            seen: boolean;
+        }[];
+        date: string;
+    }[];
+    selected_child_yn: boolean;
+    data_hash: string;
+}

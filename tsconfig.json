@@ -22,6 +22,7 @@
 		"removeComments": true,
 		"esModuleInterop": true,
 		"strictNullChecks": false,
+		"resolveJsonModule": true,
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
 		"strictPropertyInitialization": false,

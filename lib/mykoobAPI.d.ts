@@ -1,5 +1,5 @@
-import { MykoobAPIConfig, TimeFrameWithInfo, ImageSize } from './definitions';
-import { getAuthentificationDataResponse, UserDataResponse, PlusServicesInfoResponse, ApisDetailedResponse, UnseenEventsResponse, MarkAsSeenResponse, LessonsPlanResponse } from './responses';
+import { MykoobAPIConfig, TimeFrame, TimeFrameWithInfo, ImageSize } from './definitions';
+import { getAuthentificationDataResponse, UserDataResponse, PlusServicesInfoResponse, ApisDetailedResponse, UnseenEventsResponse, MarkAsSeenResponse, LessonsPlanResponse, UserActivitiesResponse } from './responses';
 declare class MykoobAPI {
     email?: string;
     password?: string;
@@ -16,5 +16,6 @@ declare class MykoobAPI {
     plusServicesInfo(): Promise<PlusServicesInfoResponse | any>;
     userProfileImage(size: ImageSize): Promise<string | any>;
     lessonsPlan(config?: TimeFrameWithInfo): Promise<LessonsPlanResponse | any>;
+    userActivities(config: TimeFrame): Promise<UserActivitiesResponse | any>;
 }
 export = MykoobAPI;

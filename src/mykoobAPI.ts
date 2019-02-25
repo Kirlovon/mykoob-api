@@ -20,6 +20,7 @@ import {
 	UnseenEventsResponse,
 	MarkAsSeenResponse,
 	LessonsPlanResponse,
+	UserActivitiesResponse
 } from './responses';
 
 /** Rest API Client for Mykoob! */
@@ -322,6 +323,40 @@ class MykoobAPI {
 				date_to: config.to,
 				school_classes_id: config.schoolClassesID,
 				school_user_id: config.schoolUserID,
+			}),
+		});
+
+		// Throws error, if something goes wrong
+		if (response.status !== 200) throw new Error('Response error');
+		if (typeof response.data === 'undefined') throw new Error('Response error');
+		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+		return response.data;
+	}
+
+	/**
+	 * Get user activities.
+	 * @param config Time frame.
+	 * @returns Returns object with all user activities.
+	 */
+	public async userActivities(config: TimeFrame): Promise<UserActivitiesResponse | any> {
+
+		// Authorization
+		if (typeof this.accessToken !== 'string') {
+			const authentificationData = await this.getAuthentificationData();
+			this.accessToken = authentificationData.access_token;
+		}
+
+		// Send request
+		const response = await Axios({
+			method: 'POST',
+			timeout: this.timeout,
+			url: this.resourcesURL,
+			data: Qs.stringify({
+				api: 'user_activities',
+				access_token: this.accessToken,
+				date_from: config.from,
+				date_to: config.to,
 			}),
 		});
 

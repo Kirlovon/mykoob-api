@@ -1,5 +1,5 @@
 /** Interface for requests. */
-export interface RequestConfig {
+export interface MykoobAPIConfig {
 
 	/** Authorization email. */
 	email?: string;
@@ -14,25 +14,50 @@ export interface RequestConfig {
 	timeout?: number;
 }
 
-/** Interface for authorization. */
-export interface AuthorizationConfig {
+/** Config for userActivities() method. */
+export interface TimeFrame {
 
-	/** Authorization email. */
-	email?: string;
+	/** Beginning of time frame in "YYYY-MM-DD" format. */
+	from?: string;
 
-	/** Authorization password. */
-	password?: string;
-
-	/** Request timeout. */
-	timeout?: number;
+	/** Ending of time frame in "YYYY-MM-DD" format. */
+	to?: string;
 }
 
-/** Response from getAuthentificationData method. */
-export type AuthentificationData = {
-	access_token?: string;
-	expires_in?: string | number;
-	token_type?: string;
-	scope?: string;
-	refresh_token?: string;
-	user_id?: number;
-} | any;
+/** Config for lessonsPlan() method */
+export interface TimeFrameWithInfo {
+
+	/** Beginning of time frame in "YYYY-MM-DD" format. */
+	from?: string;
+
+	/** Ending of time frame in "YYYY-MM-DD" format. */
+	to?: string;
+
+	/** Classes ID from userData() method. */
+	schoolClassesID?: number;
+
+	/** User ID from userData() method. */
+	schoolUserID?: number;
+}
+
+/** Config for userGrades(), userAttendance() and userAssignments() methods. */
+export interface TimeFrameWithSortingType {
+
+	/** Beginning of time frame in "YYYY-MM-DD" format. */
+	from?: string;
+
+	/** Ending of time frame in "YYYY-MM-DD" format. */
+	to?: string;
+
+	/** Classes ID from userData() method. */
+	schoolClassesID?: number;
+
+	/** User ID from userData() method. */
+	schoolUserID?: number;
+
+	/** Sorting type. ( 1 - by order, 0 - by execution ) */
+	sortingType?: 0 | 1;
+}
+
+/** Type for image size. */
+export type ImageSize = 'SMALL' | 'MEDIUM';

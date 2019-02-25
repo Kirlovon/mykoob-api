@@ -1,4 +1,5 @@
-import { RequestConfig, AuthorizationConfig, AuthentificationData } from './definitions';
+import { MykoobAPIConfig, TimeFrameWithInfo, ImageSize } from './definitions';
+import { getAuthentificationDataResponse, UserDataResponse, PlusServicesInfoResponse, ApisDetailedResponse, UnseenEventsResponse, MarkAsSeenResponse, LessonsPlanResponse } from './responses';
 declare class MykoobAPI {
     email?: string;
     password?: string;
@@ -6,11 +7,14 @@ declare class MykoobAPI {
     timeout: number;
     private readonly resourcesURL;
     private readonly authorizationURL;
-    constructor(config?: RequestConfig);
-    getAuthentificationData(config?: AuthorizationConfig): Promise<AuthentificationData>;
-    private getTimeout;
-    private getEmail;
-    private getPassword;
-    private getAccessToken;
+    constructor(config?: MykoobAPIConfig);
+    getAuthentificationData(): Promise<getAuthentificationDataResponse | any>;
+    userData(): Promise<UserDataResponse | any>;
+    apisDetailed(): Promise<ApisDetailedResponse | any>;
+    unseenEvents(): Promise<UnseenEventsResponse | any>;
+    markAsSeen(): Promise<MarkAsSeenResponse | any>;
+    plusServicesInfo(): Promise<PlusServicesInfoResponse | any>;
+    userProfileImage(size: ImageSize): Promise<string | any>;
+    lessonsPlan(config?: TimeFrameWithInfo): Promise<LessonsPlanResponse | any>;
 }
 export = MykoobAPI;

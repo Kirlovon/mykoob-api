@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RequestConfig | Mykoob API</title>
+	<title>MarkAsSeenResponse | Mykoob API</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="requestconfig.html">RequestConfig</a>
+					<a href="markasseenresponse.html">MarkAsSeenResponse</a>
 				</li>
 			</ul>
-			<h1>Interface RequestConfig</h1>
+			<h1>Interface MarkAsSeenResponse</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for requests.</p>
+						<p>Response from markAsSeen method.</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">RequestConfig</span>
+						<span class="target">MarkAsSeenResponse</span>
 					</li>
 				</ul>
 			</section>
@@ -86,10 +86,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="requestconfig.html#accesstoken" class="tsd-kind-icon">access<wbr>Token</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="requestconfig.html#email" class="tsd-kind-icon">email</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="requestconfig.html#password" class="tsd-kind-icon">password</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="requestconfig.html#timeout" class="tsd-kind-icon">timeout</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="markasseenresponse.html#status" class="tsd-kind-icon">status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="markasseenresponse.html#status_text" class="tsd-kind-icon">status_<wbr>text</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,64 +96,24 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="accesstoken" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> access<wbr>Token</h3>
-					<div class="tsd-signature tsd-kind-icon">access<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="status" class="tsd-anchor"></a>
+					<h3>status</h3>
+					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in definitions.ts:11</li>
+							<li>Defined in responses.ts:96</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Access token for authentification.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="email" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> email</h3>
-					<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="status_text" class="tsd-anchor"></a>
+					<h3>status_<wbr>text</h3>
+					<div class="tsd-signature tsd-kind-icon">status_<wbr>text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in definitions.ts:5</li>
+							<li>Defined in responses.ts:97</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Authorization email.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="password" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> password</h3>
-					<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in definitions.ts:8</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Authorization password.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="timeout" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> timeout</h3>
-					<div class="tsd-signature tsd-kind-icon">timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in definitions.ts:14</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Request timeout.</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -173,34 +131,52 @@
 						<a href="../classes/mykoobapi.html" class="tsd-kind-icon">MykoobAPI</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="authorizationconfig.html" class="tsd-kind-icon">Authorization<wbr>Config</a>
+						<a href="apisdetailedresponse.html" class="tsd-kind-icon">Apis<wbr>Detailed<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="lessonsplanresponse.html" class="tsd-kind-icon">Lessons<wbr>Plan<wbr>Response</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="requestconfig.html" class="tsd-kind-icon">Request<wbr>Config</a>
+						<a href="markasseenresponse.html" class="tsd-kind-icon">Mark<wbr>AsSeen<wbr>Response</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="requestconfig.html#accesstoken" class="tsd-kind-icon">access<wbr>Token</a>
+								<a href="markasseenresponse.html#status" class="tsd-kind-icon">status</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="requestconfig.html#email" class="tsd-kind-icon">email</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="requestconfig.html#password" class="tsd-kind-icon">password</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="requestconfig.html#timeout" class="tsd-kind-icon">timeout</a>
+								<a href="markasseenresponse.html#status_text" class="tsd-kind-icon">status_<wbr>text</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#authentificationdata" class="tsd-kind-icon">Authentification<wbr>Data</a>
+					<li class=" tsd-kind-interface">
+						<a href="mykoobapiconfig.html" class="tsd-kind-icon">MykoobAPIConfig</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#x" class="tsd-kind-icon">x</a>
+					<li class=" tsd-kind-interface">
+						<a href="plusservicesinforesponse.html" class="tsd-kind-icon">Plus<wbr>Services<wbr>Info<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="timeframe.html" class="tsd-kind-icon">Time<wbr>Frame</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="timeframewithinfo.html" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="timeframewithsortingtype.html" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Sorting<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="unseeneventsresponse.html" class="tsd-kind-icon">Unseen<wbr>Events<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="userdataresponse.html" class="tsd-kind-icon">User<wbr>Data<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="getauthentificationdataresponse.html" class="tsd-kind-icon">get<wbr>Authentification<wbr>Data<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#imagesize" class="tsd-kind-icon">Image<wbr>Size</a>
 					</li>
 				</ul>
 			</nav>

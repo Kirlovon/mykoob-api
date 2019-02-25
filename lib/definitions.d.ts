@@ -1,19 +1,24 @@
-export interface RequestConfig {
+export interface MykoobAPIConfig {
     email?: string;
     password?: string;
     accessToken?: string;
     timeout?: number;
 }
-export interface AuthorizationConfig {
-    email?: string;
-    password?: string;
-    timeout?: number;
+export interface TimeFrame {
+    from?: string;
+    to?: string;
 }
-export declare type AuthentificationData = {
-    access_token?: string;
-    expires_in?: string | number;
-    token_type?: string;
-    scope?: string;
-    refresh_token?: string;
-    user_id?: number;
-} | any;
+export interface TimeFrameWithInfo {
+    from?: string;
+    to?: string;
+    schoolClassesID?: number;
+    schoolUserID?: number;
+}
+export interface TimeFrameWithSortingType {
+    from?: string;
+    to?: string;
+    schoolClassesID?: number;
+    schoolUserID?: number;
+    sortingType?: 0 | 1;
+}
+export declare type ImageSize = 'SMALL' | 'MEDIUM';

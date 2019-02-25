@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AuthorizationConfig | Mykoob API</title>
+	<title>TimeFrameWithInfo | Mykoob API</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="authorizationconfig.html">AuthorizationConfig</a>
+					<a href="timeframewithinfo.html">TimeFrameWithInfo</a>
 				</li>
 			</ul>
-			<h1>Interface AuthorizationConfig</h1>
+			<h1>Interface TimeFrameWithInfo</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for authorization.</p>
+						<p>Config for lessonsPlan() method</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AuthorizationConfig</span>
+						<span class="target">TimeFrameWithInfo</span>
 					</li>
 				</ul>
 			</section>
@@ -86,9 +86,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="authorizationconfig.html#email" class="tsd-kind-icon">email</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="authorizationconfig.html#password" class="tsd-kind-icon">password</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="authorizationconfig.html#timeout" class="tsd-kind-icon">timeout</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="timeframewithinfo.html#from" class="tsd-kind-icon">from</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="timeframewithinfo.html#schoolclassesid" class="tsd-kind-icon">school<wbr>ClassesID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="timeframewithinfo.html#schooluserid" class="tsd-kind-icon">school<wbr>UserID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="timeframewithinfo.html#to" class="tsd-kind-icon">to</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,47 +98,62 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="email" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> email</h3>
-					<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="from" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> from</h3>
+					<div class="tsd-signature tsd-kind-icon">from<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in definitions.ts:21</li>
+							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/ee9cc82/src/definitions.ts#L31">definitions.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Authorization email.</p>
+							<p>Beginning of time frame in &quot;YYYY-MM-DD&quot; format.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="password" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> password</h3>
-					<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="schoolclassesid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> school<wbr>ClassesID</h3>
+					<div class="tsd-signature tsd-kind-icon">school<wbr>ClassesID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in definitions.ts:24</li>
+							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/ee9cc82/src/definitions.ts#L37">definitions.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Authorization password.</p>
+							<p>Classes ID from userData() method.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="timeout" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> timeout</h3>
-					<div class="tsd-signature tsd-kind-icon">timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="schooluserid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> school<wbr>UserID</h3>
+					<div class="tsd-signature tsd-kind-icon">school<wbr>UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in definitions.ts:27</li>
+							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/ee9cc82/src/definitions.ts#L40">definitions.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Request timeout.</p>
+							<p>User ID from userData() method.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="to" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> to</h3>
+					<div class="tsd-signature tsd-kind-icon">to<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/ee9cc82/src/definitions.ts#L34">definitions.ts:34</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Ending of time frame in &quot;YYYY-MM-DD&quot; format.</p>
 						</div>
 					</div>
 				</section>
@@ -156,32 +172,59 @@
 					<li class=" tsd-kind-class">
 						<a href="../classes/mykoobapi.html" class="tsd-kind-icon">MykoobAPI</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="apisdetailedresponse.html" class="tsd-kind-icon">Apis<wbr>Detailed<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="lessonsplanresponse.html" class="tsd-kind-icon">Lessons<wbr>Plan<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="markasseenresponse.html" class="tsd-kind-icon">Mark<wbr>AsSeen<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="mykoobapiconfig.html" class="tsd-kind-icon">MykoobAPIConfig</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="plusservicesinforesponse.html" class="tsd-kind-icon">Plus<wbr>Services<wbr>Info<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="timeframe.html" class="tsd-kind-icon">Time<wbr>Frame</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="authorizationconfig.html" class="tsd-kind-icon">Authorization<wbr>Config</a>
+						<a href="timeframewithinfo.html" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Info</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="authorizationconfig.html#email" class="tsd-kind-icon">email</a>
+								<a href="timeframewithinfo.html#from" class="tsd-kind-icon">from</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="authorizationconfig.html#password" class="tsd-kind-icon">password</a>
+								<a href="timeframewithinfo.html#schoolclassesid" class="tsd-kind-icon">school<wbr>ClassesID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="authorizationconfig.html#timeout" class="tsd-kind-icon">timeout</a>
+								<a href="timeframewithinfo.html#schooluserid" class="tsd-kind-icon">school<wbr>UserID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="timeframewithinfo.html#to" class="tsd-kind-icon">to</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface">
-						<a href="requestconfig.html" class="tsd-kind-icon">Request<wbr>Config</a>
+						<a href="timeframewithsortingtype.html" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Sorting<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="unseeneventsresponse.html" class="tsd-kind-icon">Unseen<wbr>Events<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="userdataresponse.html" class="tsd-kind-icon">User<wbr>Data<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="getauthentificationdataresponse.html" class="tsd-kind-icon">get<wbr>Authentification<wbr>Data<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#authentificationdata" class="tsd-kind-icon">Authentification<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#x" class="tsd-kind-icon">x</a>
+						<a href="../globals.html#imagesize" class="tsd-kind-icon">Image<wbr>Size</a>
 					</li>
 				</ul>
 			</nav>

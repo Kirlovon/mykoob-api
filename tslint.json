@@ -17,6 +17,7 @@
 		"interface-name": false,
 		"trailing-comma": false,
 		"ordered-imports": false,
+		"max-classes-per-file": false,
 		"only-arrow-functions": false,
 		"no-trailing-whitespace": false,
 		"object-literal-sort-keys": false,

@@ -9,6 +9,10 @@
 	<img src="https://img.shields.io/npm/types/mykoob-api.svg" alt="Types">
 </p>
 
+<h4 align="center">
+	<a href="https://kirlovon.github.io/Mykoob-API/">📚 Documentation</a>
+</h4>
+
 ## About
 
 Mykoob API is a basic Node.js module that allows you to interact with the Mykoob very easily! This library wraps the Mykoob REST Api, which is used by Mykoob mobile app, so some features available only for the Mykoob Plus subscribers!
@@ -17,40 +21,6 @@ Mykoob API is a basic Node.js module that allows you to interact with the Mykoob
 
 ```
 npm install mykoob-api --save
-```
-
-## Example
-
-```javascript
-const mykoobAPI = require('mykoob-api');
-const api = new mykoobAPI();
-
-api.filter = false; // Removes from responses unnecessary data
-api.timeout = 10000; // Requests timeout
-
-// Self-executing async function
-(async () => {
-	
-	// Get access token and other authorization data
-	const auth = await api.authorize({
-		email: 'email@outlook.com',
-		password: 'qwerty123',
-	});
-
-	// Get profile image in base64
-	const profileImage = await api.userProfileImage(auth.access_token, 'SMALL');
-
-	// Get user data
-	const userData = await api.userData(auth.access_token);
-
-	// Get user activities
-	const userActivities = await api.userActivities(auth.access_token, {
-		from: '2018-10-10',
-		to: '2018-10-20',
-		schoolClassesID: userData.user_data.user[0].school[0].class[0].school_classes_id,
-		schoolUserID: userData.user_data.user[0].school[0].school_user_id,
-	});
-})();
 ```
 
 ## Features
@@ -67,5 +37,50 @@ api.timeout = 10000; // Requests timeout
 -   Attendance receiving _( Mykoob Plus Only )_
 -   Homework receiving _( Mykoob Plus Only )_
 -   Grades receiving _( Mykoob Plus Only )_
+
+## Example
+
+```javascript
+const MykoobAPI = require('mykoob-api');
+const api = new MykoobAPI({
+	email: 'example@outlook.com',
+	password: 'qwerty123',
+	timeout: 1000
+});
+
+// Self-executing async function
+(async () => {
+
+	// Get list of available users on account
+	const usersList = await api.getUsers();
+
+	// Get user profile data
+	const userData = await api.userData();
+
+	// Get number of unseen events
+	const unseenEvents = await api.unseenEvents();
+
+	// Mark events as seen
+	const markStatus = await api.markAsSeen();
+
+	// Get profile image in base64
+	const profileImage = await api.userProfileImage('SMALL');
+
+	// Get lessons plan
+	const lessonPlan = await api.userActivities({
+		from: '2019-10-10',
+		to: '2019-10-20'
+	});
+
+	// Get user activities
+	const userActivities = await api.userActivities({
+		from: '2019-10-10',
+		to: '2019-10-20',
+		schoolClassesID: usersList[0].schoolClassesID,
+		schoolUserID: usersList[0].schoolUserID
+	});
+
+})();
+```
 
 _This Wrapper supports only the basic functionality of Mykoob REST Api. I do not plan to add support for something more specific, like chats._

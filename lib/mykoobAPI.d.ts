@@ -1,5 +1,5 @@
-import { MykoobAPIConfig, TimeFrame, TimeFrameWithInfo, TimeFrameWithSortingType, ImageSize } from './definitions';
-import { getAuthentificationDataResponse, UserDataResponse, PlusServicesInfoResponse, ApisDetailedResponse, UnseenEventsResponse, MarkAsSeenResponse, LessonsPlanResponse, UserActivitiesResponse } from './responses';
+import { MykoobAPIConfig, TimeFrame, TimeFrameWithInfo, TimeFrameWithSortingType, UsersList, ImageSize } from './definitions';
+import { GetAuthentificationDataResponse, UserDataResponse, PlusServicesInfoResponse, ApisDetailedResponse, UnseenEventsResponse, MarkAsSeenResponse, LessonsPlanResponse, UserActivitiesResponse, UserGradesResponse, UserAttendanceResponse, UserAssignmentsResponse } from './responses';
 declare class MykoobAPI {
     email?: string;
     password?: string;
@@ -8,15 +8,18 @@ declare class MykoobAPI {
     private readonly resourcesURL;
     private readonly authorizationURL;
     constructor(config?: MykoobAPIConfig);
-    getAuthentificationData(): Promise<getAuthentificationDataResponse | any>;
-    userData(): Promise<UserDataResponse | any>;
-    apisDetailed(): Promise<ApisDetailedResponse | any>;
-    unseenEvents(): Promise<UnseenEventsResponse | any>;
-    markAsSeen(): Promise<MarkAsSeenResponse | any>;
-    plusServicesInfo(): Promise<PlusServicesInfoResponse | any>;
-    userProfileImage(size: ImageSize): Promise<string | any>;
-    lessonsPlan(config?: TimeFrameWithInfo): Promise<LessonsPlanResponse | any>;
-    userActivities(config: TimeFrame): Promise<UserActivitiesResponse | any>;
-    userGrades(config: TimeFrameWithSortingType): Promise<any>;
+    getAuthentificationData(): Promise<GetAuthentificationDataResponse>;
+    getUsers(): Promise<UsersList>;
+    userData(): Promise<UserDataResponse>;
+    apisDetailed(): Promise<ApisDetailedResponse>;
+    unseenEvents(): Promise<UnseenEventsResponse>;
+    markAsSeen(): Promise<MarkAsSeenResponse>;
+    plusServicesInfo(): Promise<PlusServicesInfoResponse>;
+    userProfileImage(size: ImageSize): Promise<string>;
+    lessonsPlan(config?: TimeFrameWithInfo): Promise<LessonsPlanResponse>;
+    userActivities(config: TimeFrame): Promise<UserActivitiesResponse>;
+    userGrades(config: TimeFrameWithSortingType): Promise<UserGradesResponse>;
+    userAttendance(config: TimeFrameWithSortingType): Promise<UserAttendanceResponse>;
+    userAssignments(config: TimeFrameWithSortingType): Promise<UserAssignmentsResponse>;
 }
 export = MykoobAPI;

@@ -5,7 +5,7 @@
 	"readme": "./README.md",
 	"module": "commonjs",
 	"target": "ES6",
-	"theme": "default",
+	"theme": "minimal",
 	"excludeExternals": true,
 	"includeDeclarations": true
 }

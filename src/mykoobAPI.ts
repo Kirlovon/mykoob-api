@@ -1,5 +1,6 @@
 // Dependencies
 import Axios from 'axios';
+import DayJS from 'dayjs';
 import Qs from 'qs';
 
 // Definitions
@@ -100,7 +101,7 @@ class MykoobAPI {
 
 		// Throws error, if something goes wrong
 		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data === 'undefined') throw new Error('Response error');
+		if (typeof response.data !== 'object') throw new Error('Response error');
 		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
 		if (typeof response.data.access_token !== 'string') throw new Error('Response error');
 
@@ -132,7 +133,7 @@ class MykoobAPI {
 
 		// Throws error, if something goes wrong
 		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data === 'undefined') throw new Error('Response error');
+		if (typeof response.data !== 'object') throw new Error('Response error');
 		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
 
 		return response.data;
@@ -163,7 +164,7 @@ class MykoobAPI {
 
 		// Throws error, if something goes wrong
 		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data === 'undefined') throw new Error('Response error');
+		if (typeof response.data !== 'object') throw new Error('Response error');
 		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
 
 		return response.data;
@@ -194,7 +195,7 @@ class MykoobAPI {
 
 		// Throws error, if something goes wrong
 		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data === 'undefined') throw new Error('Response error');
+		if (typeof response.data !== 'object') throw new Error('Response error');
 		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
 
 		return response.data;
@@ -225,7 +226,7 @@ class MykoobAPI {
 
 		// Throws error, if something goes wrong
 		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data === 'undefined') throw new Error('Response error');
+		if (typeof response.data !== 'object') throw new Error('Response error');
 		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
 
 		return response.data;
@@ -256,7 +257,7 @@ class MykoobAPI {
 
 		// Throws error, if something goes wrong
 		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data === 'undefined') throw new Error('Response error');
+		if (typeof response.data !== 'object') throw new Error('Response error');
 		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
 
 		return response.data;
@@ -292,7 +293,7 @@ class MykoobAPI {
 
 		// Throws error, if something goes wrong
 		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data === 'undefined') throw new Error('Response error');
+		if (typeof response.data !== 'object') throw new Error('Response error');
 		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
 
 		return response.data;
@@ -311,6 +312,10 @@ class MykoobAPI {
 			this.accessToken = authentificationData.access_token;
 		}
 
+		// Convert dates
+		const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
+		const dateTo = DayJS(config.to).format('YYYY-MM-DD');
+
 		// Send request
 		const response = await Axios({
 			method: 'POST',
@@ -319,8 +324,8 @@ class MykoobAPI {
 			data: Qs.stringify({
 				api: 'user_lessonsplan',
 				access_token: this.accessToken,
-				date_from: config.from,
-				date_to: config.to,
+				date_from: dateFrom,
+				date_to: dateTo,
 				school_classes_id: config.schoolClassesID,
 				school_user_id: config.schoolUserID,
 			}),
@@ -328,7 +333,7 @@ class MykoobAPI {
 
 		// Throws error, if something goes wrong
 		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data === 'undefined') throw new Error('Response error');
+		if (typeof response.data !== 'object') throw new Error('Response error');
 		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
 
 		return response.data;
@@ -347,6 +352,10 @@ class MykoobAPI {
 			this.accessToken = authentificationData.access_token;
 		}
 
+		// Convert dates
+		const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
+		const dateTo = DayJS(config.to).format('YYYY-MM-DD');
+
 		// Send request
 		const response = await Axios({
 			method: 'POST',
@@ -355,14 +364,55 @@ class MykoobAPI {
 			data: Qs.stringify({
 				api: 'user_activities',
 				access_token: this.accessToken,
-				date_from: config.from,
-				date_to: config.to,
+				date_from: dateFrom,
+				date_to: dateTo,
 			}),
 		});
 
 		// Throws error, if something goes wrong
 		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data === 'undefined') throw new Error('Response error');
+		if (typeof response.data !== 'object') throw new Error('Response error');
+		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+		return response.data;
+	}
+
+	/**
+	 * Get user grades ( Mykoob Plus Only ).
+	 * @param config Time frame, sorting type, school classes id and school user id.
+	 * @returns Returns object with grades.
+	 */
+	public async userGrades(config: TimeFrameWithSortingType): Promise<any> {
+
+		// Authorization
+		if (typeof this.accessToken !== 'string') {
+			const authentificationData = await this.getAuthentificationData();
+			this.accessToken = authentificationData.access_token;
+		}
+
+		// Convert dates
+		const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
+		const dateTo = DayJS(config.to).format('YYYY-MM-DD');
+
+		// Send request
+		const response = await Axios({
+			method: 'POST',
+			timeout: this.timeout,
+			url: this.resourcesURL,
+			data: Qs.stringify({
+				api: 'user_grades',
+				access_token: this.accessToken,
+				date_from: dateFrom,
+				date_to: dateTo,
+				school_classes_id: config.schoolClassesID,
+				school_user_id: config.schoolUserID,
+				sorting_type: config.sortingType,
+			}),
+		});
+
+		// Throws error, if something goes wrong
+		if (response.status !== 200) throw new Error('Response error');
+		if (typeof response.data !== 'object') throw new Error('Response error');
 		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
 
 		return response.data;

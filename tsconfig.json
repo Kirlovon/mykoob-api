@@ -1,15 +1,31 @@
 {
+	"include": [
+		"./src/**/*.ts"
+	],
+	"exclude": [
+		"./node_modules",
+		"./lib"
+	],
 	"compilerOptions": {
-		"target": "ES2015",
+		"target": "es2015",
 		"module": "commonjs",
-		"lib": ["es2015"],
-		"declaration": true,
+		"types": [
+			"node"
+		],
+		"strict": true,
+		"pretty": true,
+		"allowJs": false,
 		"outDir": "./lib",
 		"rootDir": "./src",
+		"sourceMap": true,
+		"declaration": true,
 		"removeComments": true,
-		"strict": true,
-		"esModuleInterop": true
-	},
-
-	"exclude": ["node_modules", "lib"]
+		"esModuleInterop": true,
+		"strictNullChecks": false,
+		"resolveJsonModule": true,
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"strictPropertyInitialization": false,
+		"suppressImplicitAnyIndexErrors": true
+	}
 }

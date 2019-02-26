@@ -84,10 +84,18 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="mykoobapi.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mykoobapi.html#accesstoken" class="tsd-kind-icon">access<wbr>Token</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="mykoobapi.html#authorizationurl" class="tsd-kind-icon">authorizationURL</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mykoobapi.html#filter" class="tsd-kind-icon">filter</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mykoobapi.html#email" class="tsd-kind-icon">email</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mykoobapi.html#password" class="tsd-kind-icon">password</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="mykoobapi.html#resourcesurl" class="tsd-kind-icon">resourcesURL</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mykoobapi.html#timeout" class="tsd-kind-icon">timeout</a></li>
 							</ul>
@@ -96,14 +104,12 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#apisdetailed" class="tsd-kind-icon">apis<wbr>Detailed</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#authorize" class="tsd-kind-icon">authorize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#getauthentificationdata" class="tsd-kind-icon">get<wbr>Authentification<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#lessonsplan" class="tsd-kind-icon">lessons<wbr>Plan</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#markasseen" class="tsd-kind-icon">mark<wbr>AsSeen</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#plusservicesinfo" class="tsd-kind-icon">plus<wbr>Services<wbr>Info</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#unseenevents" class="tsd-kind-icon">unseen<wbr>Events</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#useractivities" class="tsd-kind-icon">user<wbr>Activities</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#userassignments" class="tsd-kind-icon">user<wbr>Assignments</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#userattendance" class="tsd-kind-icon">user<wbr>Attendance</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#userdata" class="tsd-kind-icon">user<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#usergrades" class="tsd-kind-icon">user<wbr>Grades</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mykoobapi.html#userprofileimage" class="tsd-kind-icon">user<wbr>Profile<wbr>Image</a></li>
@@ -113,34 +119,95 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>MykoobAPI<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="../interfaces/mykoobapiconfig.html" class="tsd-signature-type">MykoobAPIConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="mykoobapi.html" class="tsd-signature-type">MykoobAPI</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L46">mykoobAPI.ts:46</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Parse default config.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> config: <a href="../interfaces/mykoobapiconfig.html" class="tsd-signature-type">MykoobAPIConfig</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="mykoobapi.html" class="tsd-signature-type">MykoobAPI</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="accesstoken" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> access<wbr>Token</h3>
+					<div class="tsd-signature tsd-kind-icon">access<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L37">mykoobAPI.ts:37</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Access token for authentification.</p>
+						</div>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="authorizationurl" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> authorizationURL</h3>
 					<div class="tsd-signature tsd-kind-icon">authorizationURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.mykoob.lv/?oauth2/authorizeDevice&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L19">mykoobAPI.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L46">mykoobAPI.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>URL for Mykoob Authorization API</p>
+							<p>URL for Mykoob Authorization API.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="filter" class="tsd-anchor"></a>
-					<h3>filter</h3>
-					<div class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
+					<a name="email" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> email</h3>
+					<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L13">mykoobAPI.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L31">mykoobAPI.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Removes from responses unnecessary data</p>
+							<p>Authorization email.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="password" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> password</h3>
+					<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L34">mykoobAPI.ts:34</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Authorization password.</p>
 						</div>
 					</div>
 				</section>
@@ -150,12 +217,12 @@
 					<div class="tsd-signature tsd-kind-icon">resourcesURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.mykoob.lv/?api/resource&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L16">mykoobAPI.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L43">mykoobAPI.ts:43</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>URL for Mykoob Resources API</p>
+							<p>URL for Mykoob Resources API.</p>
 						</div>
 					</div>
 				</section>
@@ -165,12 +232,12 @@
 					<div class="tsd-signature tsd-kind-icon">timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L10">mykoobAPI.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L40">mykoobAPI.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Requests timeout</p>
+							<p>Requests timeout.</p>
 						</div>
 					</div>
 				</section>
@@ -181,63 +248,56 @@
 					<a name="apisdetailed" class="tsd-anchor"></a>
 					<h3>apis<wbr>Detailed</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">apis<wbr>Detailed<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">apis<wbr>Detailed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/apisdetailedresponse.html" class="tsd-signature-type">ApisDetailedResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L54">mykoobAPI.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L146">mykoobAPI.ts:146</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get api&#39;s detailed information</p>
+									<p>Get api&#39;s detailed information.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Access token from authorize() method</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Returns object with available api&#39;s</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/apisdetailedresponse.html" class="tsd-signature-type">ApisDetailedResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Returns object with available api&#39;s.</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="authorize" class="tsd-anchor"></a>
-					<h3>authorize</h3>
+					<a name="getauthentificationdata" class="tsd-anchor"></a>
+					<h3>get<wbr>Authentification<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">authorize<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../interfaces/authorize.html" class="tsd-signature-type">authorize</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Authentification<wbr>Data<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/getauthentificationdataresponse.html" class="tsd-signature-type">getAuthentificationDataResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L26">mykoobAPI.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L83">mykoobAPI.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get mykoob access token</p>
+									<p>Get mykoob access token and other authentication data.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>data: <a href="../interfaces/authorize.html" class="tsd-signature-type">authorize</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Authorization data</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Returns object with access token and authorization status</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/getauthentificationdataresponse.html" class="tsd-signature-type">getAuthentificationDataResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Returns object with authentification data</p>
+							<h3 id="example">Example</h3>
+							<pre><code class="language-javascript"><span class="hljs-keyword">const</span> api = <span class="hljs-keyword">new</span> MykoobAPI({
+    <span class="hljs-attr">email</span>: <span class="hljs-string">'email@outlook.com'</span>,
+    <span class="hljs-attr">password</span>: <span class="hljs-string">'qwerty123'</span>
+});
+
+api.getAuthentificationData().then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.info(data.access_token); <span class="hljs-comment">// '0a1b3c4d......'</span>
+    <span class="hljs-built_in">console</span>.info(data.user_id);    <span class="hljs-comment">// 12345</span>
+    <span class="hljs-built_in">console</span>.info(data.expires_in); <span class="hljs-comment">// 9876543</span>
+});</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -245,37 +305,31 @@
 					<a name="lessonsplan" class="tsd-anchor"></a>
 					<h3>lessons<wbr>Plan</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">lessons<wbr>Plan<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">: </span><a href="../interfaces/timeframewithinfo.html" class="tsd-signature-type">timeFrameWithInfo</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">lessons<wbr>Plan<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="../interfaces/timeframewithinfo.html" class="tsd-signature-type">TimeFrameWithInfo</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/lessonsplanresponse.html" class="tsd-signature-type">LessonsPlanResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L206">mykoobAPI.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L307">mykoobAPI.ts:307</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get lessons plan</p>
+									<p>Get lessons plan.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> config: <a href="../interfaces/timeframewithinfo.html" class="tsd-signature-type">TimeFrameWithInfo</a><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Access token from authorize() method</p>
-									</div>
-								</li>
-								<li>
-									<h5>config: <a href="../interfaces/timeframewithinfo.html" class="tsd-signature-type">timeFrameWithInfo</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Time frame, school classes id and school user id</p>
+										<p>Time frame, school classes id and school user id.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Returns object with lessons plan</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/lessonsplanresponse.html" class="tsd-signature-type">LessonsPlanResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Returns object with lessons plan.</p>
 						</li>
 					</ul>
 				</section>
@@ -283,31 +337,22 @@
 					<a name="markasseen" class="tsd-anchor"></a>
 					<h3>mark<wbr>AsSeen</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">mark<wbr>AsSeen<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">mark<wbr>AsSeen<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/markasseenresponse.html" class="tsd-signature-type">MarkAsSeenResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L277">mykoobAPI.ts:277</a></li>
+									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L208">mykoobAPI.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Mark all events as seen</p>
+									<p>Mark all events as seen.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Access token from authorize() method</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Action status</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/markasseenresponse.html" class="tsd-signature-type">MarkAsSeenResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Action status.</p>
 						</li>
 					</ul>
 				</section>
@@ -315,31 +360,22 @@
 					<a name="plusservicesinfo" class="tsd-anchor"></a>
 					<h3>plus<wbr>Services<wbr>Info</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">plus<wbr>Services<wbr>Info<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">plus<wbr>Services<wbr>Info<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/plusservicesinforesponse.html" class="tsd-signature-type">PlusServicesInfoResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L296">mykoobAPI.ts:296</a></li>
+									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L239">mykoobAPI.ts:239</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get info about plus services</p>
+									<p>Get info about plus services.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Access token from authorize() method</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Returns object plus services info</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/plusservicesinforesponse.html" class="tsd-signature-type">PlusServicesInfoResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Returns object plus services info.</p>
 						</li>
 					</ul>
 				</section>
@@ -347,13 +383,13 @@
 					<a name="unseenevents" class="tsd-anchor"></a>
 					<h3>unseen<wbr>Events</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">unseen<wbr>Events<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">unseen<wbr>Events<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/unseeneventsresponse.html" class="tsd-signature-type">UnseenEventsResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L253">mykoobAPI.ts:253</a></li>
+									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L177">mykoobAPI.ts:177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -361,16 +397,7 @@
 									<p>Get number of unseen events</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Access token from authorize() method</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/unseeneventsresponse.html" class="tsd-signature-type">UnseenEventsResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Returns number of unseen events</p>
 						</li>
 					</ul>
@@ -379,113 +406,31 @@
 					<a name="useractivities" class="tsd-anchor"></a>
 					<h3>user<wbr>Activities</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">user<wbr>Activities<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">: </span><a href="../interfaces/timeframe.html" class="tsd-signature-type">timeFrame</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">user<wbr>Activities<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/timeframe.html" class="tsd-signature-type">TimeFrame</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/useractivitiesresponse.html" class="tsd-signature-type">UserActivitiesResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L184">mykoobAPI.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L347">mykoobAPI.ts:347</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get user activities</p>
+									<p>Get user activities.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
+									<h5>config: <a href="../interfaces/timeframe.html" class="tsd-signature-type">TimeFrame</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Access token from authorize() method</p>
-									</div>
-								</li>
-								<li>
-									<h5>config: <a href="../interfaces/timeframe.html" class="tsd-signature-type">timeFrame</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Time frame</p>
+										<p>Time frame.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Returns object with all user activities</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="userassignments" class="tsd-anchor"></a>
-					<h3>user<wbr>Assignments</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">user<wbr>Assignments<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">: </span><a href="../interfaces/timeframewithsortingtype.html" class="tsd-signature-type">timeFrameWithSortingType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L159">mykoobAPI.ts:159</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get user assignments ( Mykoob Plus Only )</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Access token from authorize() method</p>
-									</div>
-								</li>
-								<li>
-									<h5>config: <a href="../interfaces/timeframewithsortingtype.html" class="tsd-signature-type">timeFrameWithSortingType</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Time frame, sorting type, school classes id and school user id</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Returns object with assignments</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="userattendance" class="tsd-anchor"></a>
-					<h3>user<wbr>Attendance</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">user<wbr>Attendance<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">: </span><a href="../interfaces/timeframewithsortingtype.html" class="tsd-signature-type">timeFrameWithSortingType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L134">mykoobAPI.ts:134</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get user attendance ( Mykoob Plus Only )</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Access token from authorize() method</p>
-									</div>
-								</li>
-								<li>
-									<h5>config: <a href="../interfaces/timeframewithsortingtype.html" class="tsd-signature-type">timeFrameWithSortingType</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Time frame, sorting type, school classes id and school user id</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Returns object with attendance</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/useractivitiesresponse.html" class="tsd-signature-type">UserActivitiesResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Returns object with all user activities.</p>
 						</li>
 					</ul>
 				</section>
@@ -493,31 +438,22 @@
 					<a name="userdata" class="tsd-anchor"></a>
 					<h3>user<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">user<wbr>Data<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">user<wbr>Data<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/userdataresponse.html" class="tsd-signature-type">UserDataResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L80">mykoobAPI.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L115">mykoobAPI.ts:115</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get user data</p>
+									<p>Get user data.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Access token from authorize() method</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Returns object with all data about user</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/userdataresponse.html" class="tsd-signature-type">UserDataResponse</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Returns object with all data about user.</p>
 						</li>
 					</ul>
 				</section>
@@ -525,37 +461,31 @@
 					<a name="usergrades" class="tsd-anchor"></a>
 					<h3>user<wbr>Grades</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">user<wbr>Grades<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">: </span><a href="../interfaces/timeframewithsortingtype.html" class="tsd-signature-type">timeFrameWithSortingType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">user<wbr>Grades<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/timeframewithsortingtype.html" class="tsd-signature-type">TimeFrameWithSortingType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L109">mykoobAPI.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L385">mykoobAPI.ts:385</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get user grades ( Mykoob Plus Only )</p>
+									<p>Get user grades ( Mykoob Plus Only ).</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
+									<h5>config: <a href="../interfaces/timeframewithsortingtype.html" class="tsd-signature-type">TimeFrameWithSortingType</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Access token from authorize() method</p>
-									</div>
-								</li>
-								<li>
-									<h5>config: <a href="../interfaces/timeframewithsortingtype.html" class="tsd-signature-type">timeFrameWithSortingType</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Time frame, sorting type, school classes id and school user id</p>
+										<p>Time frame, sorting type, school classes id and school user id.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Returns object with grades</p>
+							<p>Returns object with grades.</p>
 						</li>
 					</ul>
 				</section>
@@ -563,37 +493,31 @@
 					<a name="userprofileimage" class="tsd-anchor"></a>
 					<h3>user<wbr>Profile<wbr>Image</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">user<wbr>Profile<wbr>Image<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">definitions.imageSize</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">user<wbr>Profile<wbr>Image<span class="tsd-signature-symbol">(</span>size<span class="tsd-signature-symbol">: </span><a href="../globals.html#imagesize" class="tsd-signature-type">ImageSize</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/eb39d26/src/mykoobAPI.ts#L230">mykoobAPI.ts:230</a></li>
+									<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/7ddc2d2/src/mykoobAPI.ts#L271">mykoobAPI.ts:271</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get user profile image</p>
+									<p>Get user profile image.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <span class="tsd-signature-type">string</span></h5>
+									<h5>size: <a href="../globals.html#imagesize" class="tsd-signature-type">ImageSize</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Access token from authorize() method</p>
-									</div>
-								</li>
-								<li>
-									<h5>size: <span class="tsd-signature-type">definitions.imageSize</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Image size ( &quot;SMALL&quot; or &quot;MEDIUM&quot;)</p>
+										<p>Image size ( &quot;SMALL&quot; or &quot;MEDIUM&quot;).</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Returns image in base64 format</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Returns image in base64 format.</p>
 						</li>
 					</ul>
 				</section>
@@ -614,11 +538,20 @@
 					<li class="current tsd-kind-class">
 						<a href="mykoobapi.html" class="tsd-kind-icon">MykoobAPI</a>
 						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="mykoobapi.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="mykoobapi.html#accesstoken" class="tsd-kind-icon">access<wbr>Token</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="mykoobapi.html#authorizationurl" class="tsd-kind-icon">authorizationURL</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="mykoobapi.html#filter" class="tsd-kind-icon">filter</a>
+								<a href="mykoobapi.html#email" class="tsd-kind-icon">email</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="mykoobapi.html#password" class="tsd-kind-icon">password</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="mykoobapi.html#resourcesurl" class="tsd-kind-icon">resourcesURL</a>
@@ -630,7 +563,7 @@
 								<a href="mykoobapi.html#apisdetailed" class="tsd-kind-icon">apis<wbr>Detailed</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="mykoobapi.html#authorize" class="tsd-kind-icon">authorize</a>
+								<a href="mykoobapi.html#getauthentificationdata" class="tsd-kind-icon">get<wbr>Authentification<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="mykoobapi.html#lessonsplan" class="tsd-kind-icon">lessons<wbr>Plan</a>
@@ -648,12 +581,6 @@
 								<a href="mykoobapi.html#useractivities" class="tsd-kind-icon">user<wbr>Activities</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="mykoobapi.html#userassignments" class="tsd-kind-icon">user<wbr>Assignments</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="mykoobapi.html#userattendance" class="tsd-kind-icon">user<wbr>Attendance</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="mykoobapi.html#userdata" class="tsd-kind-icon">user<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -667,19 +594,43 @@
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/authorize.html" class="tsd-kind-icon">authorize</a>
+						<a href="../interfaces/apisdetailedresponse.html" class="tsd-kind-icon">Apis<wbr>Detailed<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/timeframe.html" class="tsd-kind-icon">time<wbr>Frame</a>
+						<a href="../interfaces/lessonsplanresponse.html" class="tsd-kind-icon">Lessons<wbr>Plan<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/timeframewithinfo.html" class="tsd-kind-icon">time<wbr>Frame<wbr>With<wbr>Info</a>
+						<a href="../interfaces/markasseenresponse.html" class="tsd-kind-icon">Mark<wbr>AsSeen<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/timeframewithsortingtype.html" class="tsd-kind-icon">time<wbr>Frame<wbr>With<wbr>Sorting<wbr>Type</a>
+						<a href="../interfaces/mykoobapiconfig.html" class="tsd-kind-icon">MykoobAPIConfig</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/plusservicesinforesponse.html" class="tsd-kind-icon">Plus<wbr>Services<wbr>Info<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/timeframe.html" class="tsd-kind-icon">Time<wbr>Frame</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/timeframewithinfo.html" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/timeframewithsortingtype.html" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Sorting<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/unseeneventsresponse.html" class="tsd-kind-icon">Unseen<wbr>Events<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/useractivitiesresponse.html" class="tsd-kind-icon">User<wbr>Activities<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/userdataresponse.html" class="tsd-kind-icon">User<wbr>Data<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/getauthentificationdataresponse.html" class="tsd-kind-icon">get<wbr>Authentification<wbr>Data<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#imagesize" class="tsd-kind-icon">image<wbr>Size</a>
+						<a href="../globals.html#imagesize" class="tsd-kind-icon">Image<wbr>Size</a>
 					</li>
 				</ul>
 			</nav>

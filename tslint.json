@@ -4,17 +4,39 @@
 		"tslint:recommended"
 	],
 	"rules": {
+		"curly": false,
+		"no-any": false,
+		"no-empty": false,
+		"no-console": false,
 		"class-name": false,
+		"array-type": false,
+		"no-bitwise": false,
+		"prefer-const": true,
+		"prefer-for-of": false,
+		"no-var-keyword": true,
+		"interface-name": false,
+		"trailing-comma": false,
+		"ordered-imports": false,
+		"only-arrow-functions": false,
+		"no-trailing-whitespace": false,
+		"object-literal-sort-keys": false,
+		"object-literal-shorthand": false,
+		"max-line-length": [
+			true,
+			150
+		],
+		"semicolon": [
+			true,
+			"always"
+		],
+		"quotemark": [
+			true,
+			"single"
+		],
 		"indent": [
 			true,
 			"tabs",
-			2
-		],
-		"interface-name": [
-			true,
-			"never-prefix"
-		],
-		"object-literal-sort-keys": false,
-		"no-bitwise": false
+			4
+		]
 	}
 }

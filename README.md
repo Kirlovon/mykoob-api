@@ -67,7 +67,7 @@ const api = new MykoobAPI({
 	const profileImage = await api.userProfileImage('SMALL');
 
 	// Get lessons plan
-	const lessonPlan = await api.userActivities({
+	const lessonPlan = await api.lessonsPlan({
 		from: '2019-10-10',
 		to: '2019-10-20'
 	});

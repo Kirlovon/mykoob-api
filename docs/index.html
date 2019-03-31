@@ -956,6 +956,9 @@ img { max-width: 100%; }
 			<a href="interfaces/usergradesresponse.html" class="tsd-kind-icon">User<wbr>Grades<wbr>Response</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
+			<a href="globals.html#errorcallback" class="tsd-kind-icon">Error<wbr>Callback</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#imagesize" class="tsd-kind-icon">Image<wbr>Size</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
@@ -1024,14 +1027,14 @@ img { max-width: 100%; }
 
     <span class="hljs-comment">// Get lessons plan</span>
     <span class="hljs-keyword">const</span> lessonPlan = <span class="hljs-keyword">await</span> api.lessonsPlan({
-        <span class="hljs-attr">from</span>: <span class="hljs-string">'2019-10-10'</span>,
-        <span class="hljs-attr">to</span>: <span class="hljs-string">'2019-10-20'</span>
+        <span class="hljs-attr">from</span>: <span class="hljs-string">'2012-01-01'</span>,
+        <span class="hljs-attr">to</span>: <span class="hljs-built_in">Date</span>.now()
     });
 
     <span class="hljs-comment">// Get user activities</span>
     <span class="hljs-keyword">const</span> userActivities = <span class="hljs-keyword">await</span> api.userActivities({
-        <span class="hljs-attr">from</span>: <span class="hljs-string">'2019-10-10'</span>,
-        <span class="hljs-attr">to</span>: <span class="hljs-string">'2019-10-20'</span>,
+        <span class="hljs-attr">from</span>: <span class="hljs-built_in">Date</span>.now(),
+        <span class="hljs-attr">to</span>: <span class="hljs-built_in">Date</span>.now() - <span class="hljs-number">86400</span>,
         <span class="hljs-attr">schoolClassesID</span>: usersList[<span class="hljs-number">0</span>].schoolClassesID,
         <span class="hljs-attr">schoolUserID</span>: usersList[<span class="hljs-number">0</span>].schoolUserID
     });
@@ -1073,6 +1076,7 @@ img { max-width: 100%; }
 					<section class="tsd-index-section ">
 						<h3>Type aliases</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-type-alias"><a href="globals.html#errorcallback" class="tsd-kind-icon">Error<wbr>Callback</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#imagesize" class="tsd-kind-icon">Image<wbr>Size</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#userslist" class="tsd-kind-icon">Users<wbr>List</a></li>
 						</ul>
@@ -1083,12 +1087,48 @@ img { max-width: 100%; }
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Type aliases</h2>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
+				<a name="errorcallback" class="tsd-anchor"></a>
+				<h3>Error<wbr>Callback</h3>
+				<div class="tsd-signature tsd-kind-icon">Error<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/b1de5bd/src/definitions.ts#L83">definitions.ts:83</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Type for callback with error.</p>
+					</div>
+				</div>
+				<div class="tsd-type-declaration">
+					<h4>Type declaration</h4>
+					<ul class="tsd-parameters">
+						<li class="tsd-parameter-siganture">
+							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+							</ul>
+							<ul class="tsd-descriptions">
+								<li class="tsd-description">
+									<h4 class="tsd-parameters-title">Parameters</h4>
+									<ul class="tsd-parameters">
+										<li>
+											<h5>error: <span class="tsd-signature-type">Error</span></h5>
+										</li>
+									</ul>
+									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="imagesize" class="tsd-anchor"></a>
 				<h3>Image<wbr>Size</h3>
 				<div class="tsd-signature tsd-kind-icon">Image<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"SMALL"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MEDIUM"</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/0d800a9/src/definitions.ts#L80">definitions.ts:80</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/b1de5bd/src/definitions.ts#L80">definitions.ts:80</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1103,7 +1143,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Users<wbr>List<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/0d800a9/src/definitions.ts#L63">definitions.ts:63</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/b1de5bd/src/definitions.ts#L63">definitions.ts:63</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">

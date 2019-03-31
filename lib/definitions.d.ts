@@ -37,3 +37,4 @@ export declare type UsersList = {
     schoolClassesStudentsID?: number | null;
 }[];
 export declare type ImageSize = 'SMALL' | 'MEDIUM';
+export declare type ErrorCallback = (error: Error) => void;

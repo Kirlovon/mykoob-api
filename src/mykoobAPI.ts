@@ -10,7 +10,8 @@ import {
 	TimeFrameWithInfo,
 	TimeFrameWithSortingType,
 	UsersList,
-	ImageSize
+	ImageSize,
+	ErrorCallback
 } from './definitions';
 
 // API Responses
@@ -49,7 +50,7 @@ class MykoobAPI {
 	/** URL for Mykoob Authorization API. */
 	private readonly authorizationURL: string = 'https://www.mykoob.lv/?oauth2/authorizeDevice';
 
-	/** Parse default config. */
+	/** Parse config. */
 	constructor(config: MykoobAPIConfig = {}) {
 		if (typeof config.email === 'string') {
 			this.email = config.email;
@@ -68,41 +69,53 @@ class MykoobAPI {
 	/**
 	 * Get mykoob access token and other authentication data.
 	 * @param config Authentification data
+	 * @param errorCallback Callback with the error.
 	 * @returns Returns object with authentification data
 	 */
-	public async getAuthentificationData(): Promise<GetAuthentificationDataResponse> {
+	public async getAuthentificationData(errorCallback?: ErrorCallback): Promise<GetAuthentificationDataResponse> {
+		try {
 
-		// Throws error, if data is undefined
-		if (typeof this.email === 'undefined') throw new Error('Email is not specified');
-		if (typeof this.password === 'undefined') throw new Error('Password is not specified');
+			// Throws error, if data is undefined
+			if (typeof this.email === 'undefined') throw new Error('Email is not specified');
+			if (typeof this.password === 'undefined') throw new Error('Password is not specified');
 
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.authorizationURL,
-			data: Qs.stringify({
-				use_oauth_proxy: 1,
-				client: 'MykoobMobile',
-				username: this.email,
-				password: this.password,
-			}),
-		});
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.authorizationURL,
+				data: Qs.stringify({
+					use_oauth_proxy: 1,
+					client: 'MykoobMobile',
+					username: this.email,
+					password: this.password,
+				}),
+			});
 
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data !== 'object') throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-		if (typeof response.data.access_token !== 'string') throw new Error('Response error');
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data !== 'object') throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+			if (typeof response.data.access_token !== 'string') throw new Error('Response error');
 
-		return response.data;
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
+			} else {
+				throw error;
+			}
+		}
+
 	}
 
 	/**
 	 * Get list of users and their ids. ( Uses userData method )
+	 * @param errorCallback Callback with the error.
 	 * @returns List of users.
 	 */
-	public async getUsers(): Promise<UsersList> {
+	public async getUsers(errorCallback?: ErrorCallback): Promise<UsersList> {
 		try {
 
 			// Get user data
@@ -145,7 +158,55 @@ class MykoobAPI {
 
 		} catch (error) {
 			if (error.name === 'TypeError') {
-				throw new Error('Error parsing user data! Try to get users manually, using userData() method!');
+				if (typeof errorCallback === 'function') {
+					errorCallback(new Error('Error parsing user data! Try to get users manually, using userData() method!'));
+				} else {
+					throw new Error('Error parsing user data! Try to get users manually, using userData() method!');
+				}
+			} else {
+				if (typeof errorCallback === 'function') {
+					errorCallback(error);
+				} else {
+					throw error;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Get user data.
+	 * @param errorCallback Callback with the error.
+	 * @returns Returns object with all data about user.
+	 */
+	public async userData(errorCallback?: ErrorCallback): Promise<UserDataResponse> {
+		try {
+			// Authorization
+			if (typeof this.accessToken !== 'string') {
+				const authentificationData = await this.getAuthentificationData();
+				this.accessToken = authentificationData.access_token;
+			}
+
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.resourcesURL,
+				data: Qs.stringify({
+					api: 'user_data',
+					access_token: this.accessToken,
+				}),
+			});
+
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data !== 'object') throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
 			} else {
 				throw error;
 			}
@@ -153,395 +214,454 @@ class MykoobAPI {
 	}
 
 	/**
-	 * Get user data.
-	 * @returns Returns object with all data about user.
-	 */
-	public async userData(): Promise<UserDataResponse> {
-
-		// Authorization
-		if (typeof this.accessToken !== 'string') {
-			const authentificationData = await this.getAuthentificationData();
-			this.accessToken = authentificationData.access_token;
-		}
-
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.resourcesURL,
-			data: Qs.stringify({
-				api: 'user_data',
-				access_token: this.accessToken,
-			}),
-		});
-
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data !== 'object') throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-
-		return response.data;
-	}
-
-	/**
 	 * Get api's detailed information.
+	 * @param errorCallback Callback with the error.
 	 * @returns Returns object with available api's.
 	 */
-	public async apisDetailed(): Promise<ApisDetailedResponse> {
+	public async apisDetailed(errorCallback?: ErrorCallback): Promise<ApisDetailedResponse> {
+		try {
+			// Authorization
+			if (typeof this.accessToken !== 'string') {
+				const authentificationData = await this.getAuthentificationData();
+				this.accessToken = authentificationData.access_token;
+			}
 
-		// Authorization
-		if (typeof this.accessToken !== 'string') {
-			const authentificationData = await this.getAuthentificationData();
-			this.accessToken = authentificationData.access_token;
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.resourcesURL,
+				data: Qs.stringify({
+					api: 'all_device_apis_detailed',
+					access_token: this.accessToken,
+				}),
+			});
+
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data !== 'object') throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
+			} else {
+				throw error;
+			}
 		}
-
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.resourcesURL,
-			data: Qs.stringify({
-				api: 'all_device_apis_detailed',
-				access_token: this.accessToken,
-			}),
-		});
-
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data !== 'object') throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-
-		return response.data;
 	}
 
 	/**
 	 * Get number of unseen events.
+	 * @param errorCallback Callback with the error.
 	 * @returns Returns number of unseen events.
 	 */
-	public async unseenEvents(): Promise<UnseenEventsResponse> {
+	public async unseenEvents(errorCallback?: ErrorCallback): Promise<UnseenEventsResponse> {
+		try {
+			// Authorization
+			if (typeof this.accessToken !== 'string') {
+				const authentificationData = await this.getAuthentificationData();
+				this.accessToken = authentificationData.access_token;
+			}
 
-		// Authorization
-		if (typeof this.accessToken !== 'string') {
-			const authentificationData = await this.getAuthentificationData();
-			this.accessToken = authentificationData.access_token;
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.resourcesURL,
+				data: Qs.stringify({
+					api: 'unseen_events_count',
+					access_token: this.accessToken,
+				}),
+			});
+
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data !== 'object') throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
+			} else {
+				throw error;
+			}
 		}
-
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.resourcesURL,
-			data: Qs.stringify({
-				api: 'unseen_events_count',
-				access_token: this.accessToken,
-			}),
-		});
-
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data !== 'object') throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-
-		return response.data;
 	}
 
 	/**
 	 * Mark all events as seen.
+	 * @param errorCallback Callback with the error.
 	 * @returns Action status.
 	 */
-	public async markAsSeen(): Promise<MarkAsSeenResponse> {
+	public async markAsSeen(errorCallback?: ErrorCallback): Promise<MarkAsSeenResponse> {
+		try {
+			// Authorization
+			if (typeof this.accessToken !== 'string') {
+				const authentificationData = await this.getAuthentificationData();
+				this.accessToken = authentificationData.access_token;
+			}
 
-		// Authorization
-		if (typeof this.accessToken !== 'string') {
-			const authentificationData = await this.getAuthentificationData();
-			this.accessToken = authentificationData.access_token;
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.resourcesURL,
+				data: Qs.stringify({
+					api: 'mark_user_activities_seen',
+					access_token: this.accessToken,
+				}),
+			});
+
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data !== 'object') throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
+			} else {
+				throw error;
+			}
 		}
-
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.resourcesURL,
-			data: Qs.stringify({
-				api: 'mark_user_activities_seen',
-				access_token: this.accessToken,
-			}),
-		});
-
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data !== 'object') throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-
-		return response.data;
 	}
 
 	/**
 	 * Get info about plus services.
+	 * @param errorCallback Callback with the error.
 	 * @returns Returns object plus services info.
 	 */
-	public async plusServicesInfo(): Promise<PlusServicesInfoResponse> {
+	public async plusServicesInfo(errorCallback?: ErrorCallback): Promise<PlusServicesInfoResponse> {
+		try {
+			// Authorization
+			if (typeof this.accessToken !== 'string') {
+				const authentificationData = await this.getAuthentificationData();
+				this.accessToken = authentificationData.access_token;
+			}
 
-		// Authorization
-		if (typeof this.accessToken !== 'string') {
-			const authentificationData = await this.getAuthentificationData();
-			this.accessToken = authentificationData.access_token;
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.resourcesURL,
+				data: Qs.stringify({
+					api: 'plus_services',
+					access_token: this.accessToken,
+				}),
+			});
+
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data !== 'object') throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
+			} else {
+				throw error;
+			}
 		}
-
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.resourcesURL,
-			data: Qs.stringify({
-				api: 'plus_services',
-				access_token: this.accessToken,
-			}),
-		});
-
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data !== 'object') throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-
-		return response.data;
 	}
 
 	/**
 	 * Get user profile image.
 	 * @param size Image size. ( "SMALL" or "MEDIUM")
+	 * @param errorCallback Callback with the error.
 	 * @returns Returns image in base64 format.
 	 */
-	public async userProfileImage(size: ImageSize): Promise<string> {
+	public async userProfileImage(size: ImageSize, errorCallback?: ErrorCallback): Promise<string> {
+		try {
+			// Authorization
+			if (typeof this.accessToken !== 'string') {
+				const authentificationData = await this.getAuthentificationData();
+				this.accessToken = authentificationData.access_token;
+			}
 
-		// Authorization
-		if (typeof this.accessToken !== 'string') {
-			const authentificationData = await this.getAuthentificationData();
-			this.accessToken = authentificationData.access_token;
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.resourcesURL,
+				data: Qs.stringify({
+					api: 'user_profile_image',
+					access_token: this.accessToken,
+					own_image: true,
+					use_base64: true,
+					dont_use_json: false,
+					image_size: size,
+				}),
+			});
+
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+			if (typeof response.data !== 'string') throw new Error('Response error');
+
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
+			} else {
+				throw error;
+			}
 		}
-
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.resourcesURL,
-			data: Qs.stringify({
-				api: 'user_profile_image',
-				access_token: this.accessToken,
-				own_image: true,
-				use_base64: true,
-				dont_use_json: false,
-				image_size: size,
-			}),
-		});
-
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-		if (typeof response.data !== 'string') throw new Error('Response error');
-
-		return response.data;
 	}
 
 	/**
 	 * Get lessons plan.
 	 * @param config Time frame, school classes id and school user id.
+	 * @param errorCallback Callback with the error.
 	 * @returns Returns object with lessons plan.
 	 */
-	public async lessonsPlan(config: TimeFrameWithInfo = {}): Promise<LessonsPlanResponse> {
+	public async lessonsPlan(config: TimeFrameWithInfo = {}, errorCallback?: ErrorCallback): Promise<LessonsPlanResponse> {
+		try {
+			// Authorization
+			if (typeof this.accessToken !== 'string') {
+				const authentificationData = await this.getAuthentificationData();
+				this.accessToken = authentificationData.access_token;
+			}
 
-		// Authorization
-		if (typeof this.accessToken !== 'string') {
-			const authentificationData = await this.getAuthentificationData();
-			this.accessToken = authentificationData.access_token;
+			// Convert dates
+			const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
+			const dateTo = DayJS(config.to).format('YYYY-MM-DD');
+
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.resourcesURL,
+				data: Qs.stringify({
+					api: 'user_lessonsplan',
+					access_token: this.accessToken,
+					date_from: dateFrom,
+					date_to: dateTo,
+					school_classes_id: config.schoolClassesID,
+					school_user_id: config.schoolUserID,
+				}),
+			});
+
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data !== 'object') throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
+			} else {
+				throw error;
+			}
 		}
-
-		// Convert dates
-		const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
-		const dateTo = DayJS(config.to).format('YYYY-MM-DD');
-
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.resourcesURL,
-			data: Qs.stringify({
-				api: 'user_lessonsplan',
-				access_token: this.accessToken,
-				date_from: dateFrom,
-				date_to: dateTo,
-				school_classes_id: config.schoolClassesID,
-				school_user_id: config.schoolUserID,
-			}),
-		});
-
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data !== 'object') throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-
-		return response.data;
 	}
 
 	/**
 	 * Get user activities.
 	 * @param config Time frame.
+	 * @param errorCallback Callback with the error.
 	 * @returns Returns object with all user activities.
 	 */
-	public async userActivities(config: TimeFrame): Promise<UserActivitiesResponse> {
+	public async userActivities(config: TimeFrame, errorCallback?: ErrorCallback): Promise<UserActivitiesResponse> {
+		try {
+			// Authorization
+			if (typeof this.accessToken !== 'string') {
+				const authentificationData = await this.getAuthentificationData();
+				this.accessToken = authentificationData.access_token;
+			}
 
-		// Authorization
-		if (typeof this.accessToken !== 'string') {
-			const authentificationData = await this.getAuthentificationData();
-			this.accessToken = authentificationData.access_token;
+			// Convert dates
+			const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
+			const dateTo = DayJS(config.to).format('YYYY-MM-DD');
+
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.resourcesURL,
+				data: Qs.stringify({
+					api: 'user_activities',
+					access_token: this.accessToken,
+					date_from: dateFrom,
+					date_to: dateTo,
+				}),
+			});
+
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data !== 'object') throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
+			} else {
+				throw error;
+			}
 		}
-
-		// Convert dates
-		const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
-		const dateTo = DayJS(config.to).format('YYYY-MM-DD');
-
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.resourcesURL,
-			data: Qs.stringify({
-				api: 'user_activities',
-				access_token: this.accessToken,
-				date_from: dateFrom,
-				date_to: dateTo,
-			}),
-		});
-
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data !== 'object') throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-
-		return response.data;
 	}
 
 	/**
 	 * Get user grades. ( Mykoob Plus Only )
 	 * @param config Time frame, sorting type, school classes id and school user id.
+	 * @param errorCallback Callback with the error.
 	 * @returns Returns object with grades.
 	 */
-	public async userGrades(config: TimeFrameWithSortingType): Promise<UserGradesResponse> {
+	public async userGrades(config: TimeFrameWithSortingType, errorCallback?: ErrorCallback): Promise<UserGradesResponse> {
+		try {
+			// Authorization
+			if (typeof this.accessToken !== 'string') {
+				const authentificationData = await this.getAuthentificationData();
+				this.accessToken = authentificationData.access_token;
+			}
 
-		// Authorization
-		if (typeof this.accessToken !== 'string') {
-			const authentificationData = await this.getAuthentificationData();
-			this.accessToken = authentificationData.access_token;
+			// Convert dates
+			const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
+			const dateTo = DayJS(config.to).format('YYYY-MM-DD');
+
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.resourcesURL,
+				data: Qs.stringify({
+					api: 'user_grades',
+					access_token: this.accessToken,
+					date_from: dateFrom,
+					date_to: dateTo,
+					school_classes_id: config.schoolClassesID,
+					school_user_id: config.schoolUserID,
+					sorting_type: config.sortingType,
+				}),
+			});
+
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data !== 'object') throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
+			} else {
+				throw error;
+			}
 		}
-
-		// Convert dates
-		const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
-		const dateTo = DayJS(config.to).format('YYYY-MM-DD');
-
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.resourcesURL,
-			data: Qs.stringify({
-				api: 'user_grades',
-				access_token: this.accessToken,
-				date_from: dateFrom,
-				date_to: dateTo,
-				school_classes_id: config.schoolClassesID,
-				school_user_id: config.schoolUserID,
-				sorting_type: config.sortingType,
-			}),
-		});
-
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data !== 'object') throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-
-		return response.data;
 	}
 
 	/**
 	 * Get user attendance. ( Mykoob Plus Only )
 	 * @param config Time frame, sorting type, school classes id and school user id.
+	 * @param errorCallback Callback with the error.
 	 * @returns Returns object with attendance.
 	 */
-	public async userAttendance(config: TimeFrameWithSortingType): Promise<UserAttendanceResponse> {
+	public async userAttendance(config: TimeFrameWithSortingType, errorCallback?: ErrorCallback): Promise<UserAttendanceResponse> {
+		try {
+			// Authorization
+			if (typeof this.accessToken !== 'string') {
+				const authentificationData = await this.getAuthentificationData();
+				this.accessToken = authentificationData.access_token;
+			}
 
-		// Authorization
-		if (typeof this.accessToken !== 'string') {
-			const authentificationData = await this.getAuthentificationData();
-			this.accessToken = authentificationData.access_token;
+			// Convert dates
+			const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
+			const dateTo = DayJS(config.to).format('YYYY-MM-DD');
+
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.resourcesURL,
+				data: Qs.stringify({
+					api: 'user_attendance',
+					access_token: this.accessToken,
+					date_from: dateFrom,
+					date_to: dateTo,
+					school_classes_id: config.schoolClassesID,
+					school_user_id: config.schoolUserID,
+					sorting_type: config.sortingType,
+				}),
+			});
+
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data !== 'object') throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
+			} else {
+				throw error;
+			}
 		}
-
-		// Convert dates
-		const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
-		const dateTo = DayJS(config.to).format('YYYY-MM-DD');
-
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.resourcesURL,
-			data: Qs.stringify({
-				api: 'user_attendance',
-				access_token: this.accessToken,
-				date_from: dateFrom,
-				date_to: dateTo,
-				school_classes_id: config.schoolClassesID,
-				school_user_id: config.schoolUserID,
-				sorting_type: config.sortingType,
-			}),
-		});
-
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data !== 'object') throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-
-		return response.data;
 	}
 
 	/**
 	 * Get user assignments. ( Mykoob Plus Only )
 	 * @param config Time frame, sorting type, school classes id and school user id.
+	 * @param errorCallback Callback with the error.
 	 * @returns Returns object with assignments.
 	 */
-	public async userAssignments(config: TimeFrameWithSortingType): Promise<UserAssignmentsResponse> {
+	public async userAssignments(config: TimeFrameWithSortingType, errorCallback?: ErrorCallback): Promise<UserAssignmentsResponse> {
+		try {
+			// Authorization
+			if (typeof this.accessToken !== 'string') {
+				const authentificationData = await this.getAuthentificationData();
+				this.accessToken = authentificationData.access_token;
+			}
 
-		// Authorization
-		if (typeof this.accessToken !== 'string') {
-			const authentificationData = await this.getAuthentificationData();
-			this.accessToken = authentificationData.access_token;
+			// Convert dates
+			const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
+			const dateTo = DayJS(config.to).format('YYYY-MM-DD');
+
+			// Send request
+			const response = await Axios({
+				method: 'POST',
+				timeout: this.timeout,
+				url: this.resourcesURL,
+				data: Qs.stringify({
+					api: 'user_assignments',
+					access_token: this.accessToken,
+					date_from: dateFrom,
+					date_to: dateTo,
+					school_classes_id: config.schoolClassesID,
+					school_user_id: config.schoolUserID,
+					sorting_type: config.sortingType,
+				}),
+			});
+
+			// Throws error, if something goes wrong
+			if (response.status !== 200) throw new Error('Response error');
+			if (typeof response.data !== 'object') throw new Error('Response error');
+			if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
+
+			return response.data;
+
+		} catch (error) {
+			if (typeof errorCallback === 'function') {
+				errorCallback(error);
+			} else {
+				throw error;
+			}
 		}
-
-		// Convert dates
-		const dateFrom = DayJS(config.from).format('YYYY-MM-DD');
-		const dateTo = DayJS(config.to).format('YYYY-MM-DD');
-
-		// Send request
-		const response = await Axios({
-			method: 'POST',
-			timeout: this.timeout,
-			url: this.resourcesURL,
-			data: Qs.stringify({
-				api: 'user_assignments',
-				access_token: this.accessToken,
-				date_from: dateFrom,
-				date_to: dateTo,
-				school_classes_id: config.schoolClassesID,
-				school_user_id: config.schoolUserID,
-				sorting_type: config.sortingType,
-			}),
-		});
-
-		// Throws error, if something goes wrong
-		if (response.status !== 200) throw new Error('Response error');
-		if (typeof response.data !== 'object') throw new Error('Response error');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-
-		return response.data;
 	}
 
 }

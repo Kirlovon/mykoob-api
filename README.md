@@ -68,14 +68,14 @@ const api = new MykoobAPI({
 
 	// Get lessons plan
 	const lessonPlan = await api.lessonsPlan({
-		from: '2019-10-10',
-		to: '2019-10-20'
+		from: '2012-01-01',
+		to: Date.now()
 	});
 
 	// Get user activities
 	const userActivities = await api.userActivities({
-		from: '2019-10-10',
-		to: '2019-10-20',
+		from: Date.now(),
+		to: Date.now() - 86400,
 		schoolClassesID: usersList[0].schoolClassesID,
 		schoolUserID: usersList[0].schoolUserID
 	});

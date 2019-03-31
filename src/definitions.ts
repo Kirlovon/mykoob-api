@@ -78,3 +78,6 @@ export type UsersList = {
 
 /** Type for image size. */
 export type ImageSize = 'SMALL' | 'MEDIUM';
+
+/** Type for callback with error. */
+export type ErrorCallback = (error: Error) => void;

@@ -1003,8 +1003,7 @@ img { max-width: 100%; }
 			<pre><code class="language-javascript"><span class="hljs-keyword">const</span> MykoobAPI = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mykoob-api'</span>);
 <span class="hljs-keyword">const</span> api = <span class="hljs-keyword">new</span> MykoobAPI({
     <span class="hljs-attr">email</span>: <span class="hljs-string">'example@outlook.com'</span>,
-    <span class="hljs-attr">password</span>: <span class="hljs-string">'qwerty123'</span>,
-    <span class="hljs-attr">timeout</span>: <span class="hljs-number">1000</span>
+    <span class="hljs-attr">password</span>: <span class="hljs-string">'qwerty123'</span>
 });
 
 <span class="hljs-comment">// Self-executing async function</span>
@@ -1033,8 +1032,8 @@ img { max-width: 100%; }
 
     <span class="hljs-comment">// Get user activities</span>
     <span class="hljs-keyword">const</span> userActivities = <span class="hljs-keyword">await</span> api.userActivities({
-        <span class="hljs-attr">from</span>: <span class="hljs-built_in">Date</span>.now(),
-        <span class="hljs-attr">to</span>: <span class="hljs-built_in">Date</span>.now() - <span class="hljs-number">86400</span>,
+        <span class="hljs-attr">from</span>: <span class="hljs-built_in">Date</span>.now() - <span class="hljs-number">86400</span>,
+        <span class="hljs-attr">to</span>: <span class="hljs-built_in">Date</span>.now(),
         <span class="hljs-attr">schoolClassesID</span>: usersList[<span class="hljs-number">0</span>].schoolClassesID,
         <span class="hljs-attr">schoolUserID</span>: usersList[<span class="hljs-number">0</span>].schoolUserID
     });
@@ -1091,7 +1090,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Error<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/b1de5bd/src/definitions.ts#L83">definitions.ts:83</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/01b6fc0/src/definitions.ts#L83">definitions.ts:83</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1127,7 +1126,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Image<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"SMALL"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MEDIUM"</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/b1de5bd/src/definitions.ts#L80">definitions.ts:80</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/01b6fc0/src/definitions.ts#L80">definitions.ts:80</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1142,7 +1141,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Users<wbr>List<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/b1de5bd/src/definitions.ts#L63">definitions.ts:63</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/01b6fc0/src/definitions.ts#L63">definitions.ts:63</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">

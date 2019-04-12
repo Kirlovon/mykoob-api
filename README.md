@@ -44,8 +44,7 @@ npm install mykoob-api --save
 const MykoobAPI = require('mykoob-api');
 const api = new MykoobAPI({
 	email: 'example@outlook.com',
-	password: 'qwerty123',
-	timeout: 1000
+	password: 'qwerty123'
 });
 
 // Self-executing async function
@@ -74,8 +73,8 @@ const api = new MykoobAPI({
 
 	// Get user activities
 	const userActivities = await api.userActivities({
-		from: Date.now(),
-		to: Date.now() - 86400,
+		from: Date.now() - 86400,
+		to: Date.now(),
 		schoolClassesID: usersList[0].schoolClassesID,
 		schoolUserID: usersList[0].schoolUserID
 	});

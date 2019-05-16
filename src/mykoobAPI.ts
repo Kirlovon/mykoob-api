@@ -45,10 +45,10 @@ class MykoobAPI {
 	public timeout: number = 10000;
 
 	/** URL for Mykoob Resources API. */
-	private readonly resourcesURL: string = 'https://www.mykoob.lv/?api/resource';
+	private resourcesURL: string = 'https://www.mykoob.lv/?api/resource';
 
 	/** URL for Mykoob Authorization API. */
-	private readonly authorizationURL: string = 'https://www.mykoob.lv/?oauth2/authorizeDevice';
+	private authorizationURL: string = 'https://www.mykoob.lv/?oauth2/authorizeDevice';
 
 	/** Parse config. */
 	constructor(config: MykoobAPIConfig = {}) {

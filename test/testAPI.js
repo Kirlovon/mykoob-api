@@ -9,6 +9,11 @@ const api = new MykoobAPI({
 // Self-executing async function
 (async () => {
 
+	console.time('authorize');
+	await api.authorize();
+	console.timeEnd('authorize');
+	console.log('');
+
 	console.time('getAuthentificationData');
 	let result1 = await api.getAuthentificationData()
 	console.timeEnd('getAuthentificationData');

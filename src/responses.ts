@@ -1,15 +1,15 @@
 /** Response from getAuthentificationData method. */
-export interface GetAuthentificationDataResponse {
+export type GetAuthentificationDataResponse = Partial<{
 	access_token: string | null;
 	expires_in: string | number | null;
 	token_type: string | null;
 	scope: string | null;
 	refresh_token: string | null;
 	user_id: number | null;
-}
+}>;
 
 /** Response from apisDetailed method. */
-export interface ApisDetailedResponse {
+export type ApisDetailedResponse = Partial<{
 	user_data: { free: boolean, in: any[], out: any[], errors: any[] };
 	user_profile_image: { free: boolean, in: any[], out: any[], errors: any[] };
 	plus_services: { free: boolean, in: any[], out: any[], errors: any[] };
@@ -22,10 +22,10 @@ export interface ApisDetailedResponse {
 	notification_settings: { free: boolean, in: any[], out: any[], errors: any[] };
 	user_activities: { free: boolean, in: any[], out: any[], errors: any[] };
 	mark_user_activities_seen: { free: boolean, in: any[], out: any[], errors: any[] };
-}
+}>;
 
 /** Response from userData method. */
-export interface UserDataResponse {
+export type UserDataResponse = Partial<{
 	user_data: {
 		is_parent: boolean;
 		is_studen: boolean;
@@ -72,10 +72,10 @@ export interface UserDataResponse {
 		}[];
 	};
 	data_hash: string | null;
-}
+}>;
 
 /** Response from plusServicesInfo method. */
-export interface PlusServicesInfoResponse {
+export type PlusServicesInfoResponse = Partial<{
 	plus_services: {
 		type: number | null;
 		name: string | null;
@@ -88,24 +88,24 @@ export interface PlusServicesInfoResponse {
 		period: string | null;
 	}[];
 	data_hash: string | null;
-}
+}>;
 
 /** Response from markAsSeen method. */
-export interface MarkAsSeenResponse {
+export type MarkAsSeenResponse = Partial<{
 	status: string | null;
 	status_text: string | null;
-}
+}>;
 
 /** Response from unseenEvents method. */
-export interface UnseenEventsResponse {
+export type UnseenEventsResponse = Partial<{
 	unseen_events_count: {
 		activities: number | null;
 		messages: number | null;
 	};
-}
+}>;
 
 /** Response from lessonsPlan method. */
-export interface LessonsPlanResponse {
+export type LessonsPlanResponse = Partial<{
 	lessonsplan: {
 		dates: {
 			date: string | number | null;
@@ -123,10 +123,10 @@ export interface LessonsPlanResponse {
 		}[];
 	};
 	data_hash: string | null;
-}
+}>;
 
 /** Response from lessonsPlan method. */
-export interface UserActivitiesResponse {
+export type UserActivitiesResponse = Partial<{
 	activities: {
 		activity: {
 			code: string | null;
@@ -147,10 +147,10 @@ export interface UserActivitiesResponse {
 	}[];
 	selected_child_yn: boolean;
 	data_hash: string | null;
-}
+}>;
 
 /** Response from userGrades method. */
-export interface UserGradesResponse {
+export type UserGradesResponse = Partial<{
 	grades: {
 		date: string | null;
 		subject: {
@@ -175,10 +175,10 @@ export interface UserGradesResponse {
 		}[];
 	}[];
 	data_hash: string | null;
-}
+}>;
 
 /** Response from userAttendace method. */
-export interface UserAttendanceResponse {
+export type UserAttendanceResponse = Partial<{
 	attendance: {
 		date: string | null;
 		lesson: {
@@ -189,10 +189,10 @@ export interface UserAttendanceResponse {
 		}[];
 	}[];
 	data_hash: string | null;
-}
+}>;
 
 /** Response from userAssigments method. */
-export interface UserAssignmentsResponse {
+export type UserAssignmentsResponse = Partial<{
 	assignments: {
 		date: string | null;
 		discipline: {
@@ -210,4 +210,4 @@ export interface UserAssignmentsResponse {
 		}[];
 	}[];
 	data_hash: string | null;
-}
+}>;

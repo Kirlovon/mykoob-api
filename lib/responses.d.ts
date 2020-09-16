@@ -1,12 +1,12 @@
-export interface GetAuthentificationDataResponse {
+export declare type GetAuthentificationDataResponse = Partial<{
     access_token: string | null;
     expires_in: string | number | null;
     token_type: string | null;
     scope: string | null;
     refresh_token: string | null;
     user_id: number | null;
-}
-export interface ApisDetailedResponse {
+}>;
+export declare type ApisDetailedResponse = Partial<{
     user_data: {
         free: boolean;
         in: any[];
@@ -79,8 +79,8 @@ export interface ApisDetailedResponse {
         out: any[];
         errors: any[];
     };
-}
-export interface UserDataResponse {
+}>;
+export declare type UserDataResponse = Partial<{
     user_data: {
         is_parent: boolean;
         is_studen: boolean;
@@ -127,8 +127,8 @@ export interface UserDataResponse {
         }[];
     };
     data_hash: string | null;
-}
-export interface PlusServicesInfoResponse {
+}>;
+export declare type PlusServicesInfoResponse = Partial<{
     plus_services: {
         type: number | null;
         name: string | null;
@@ -141,18 +141,18 @@ export interface PlusServicesInfoResponse {
         period: string | null;
     }[];
     data_hash: string | null;
-}
-export interface MarkAsSeenResponse {
+}>;
+export declare type MarkAsSeenResponse = Partial<{
     status: string | null;
     status_text: string | null;
-}
-export interface UnseenEventsResponse {
+}>;
+export declare type UnseenEventsResponse = Partial<{
     unseen_events_count: {
         activities: number | null;
         messages: number | null;
     };
-}
-export interface LessonsPlanResponse {
+}>;
+export declare type LessonsPlanResponse = Partial<{
     lessonsplan: {
         dates: {
             date: string | number | null;
@@ -170,8 +170,8 @@ export interface LessonsPlanResponse {
         }[];
     };
     data_hash: string | null;
-}
-export interface UserActivitiesResponse {
+}>;
+export declare type UserActivitiesResponse = Partial<{
     activities: {
         activity: {
             code: string | null;
@@ -192,8 +192,8 @@ export interface UserActivitiesResponse {
     }[];
     selected_child_yn: boolean;
     data_hash: string | null;
-}
-export interface UserGradesResponse {
+}>;
+export declare type UserGradesResponse = Partial<{
     grades: {
         date: string | null;
         subject: {
@@ -218,8 +218,8 @@ export interface UserGradesResponse {
         }[];
     }[];
     data_hash: string | null;
-}
-export interface UserAttendanceResponse {
+}>;
+export declare type UserAttendanceResponse = Partial<{
     attendance: {
         date: string | null;
         lesson: {
@@ -230,8 +230,8 @@ export interface UserAttendanceResponse {
         }[];
     }[];
     data_hash: string | null;
-}
-export interface UserAssignmentsResponse {
+}>;
+export declare type UserAssignmentsResponse = Partial<{
     assignments: {
         date: string | null;
         discipline: {
@@ -249,4 +249,4 @@ export interface UserAssignmentsResponse {
         }[];
     }[];
     data_hash: string | null;
-}
+}>;

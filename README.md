@@ -50,6 +50,9 @@ const api = new MykoobAPI({
 // Self-executing async function
 (async () => {
 
+	// Authorization ( executed automatically, if not already authorized ) 
+	await api.authorize();
+
 	// Get list of available users on account
 	const usersList = await api.getUsers();
 

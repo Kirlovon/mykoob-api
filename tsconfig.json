@@ -14,7 +14,7 @@
 		],
 		"strict": true,
 		"pretty": true,
-		"allowJs": false,
+		"allowJs": true,
 		"outDir": "./lib",
 		"rootDir": "./src",
 		"sourceMap": true,

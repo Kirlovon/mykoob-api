@@ -50,7 +50,7 @@ const api = new MykoobAPI({
 // Self-executing async function
 (async () => {
 
-	// Authorization ( executed automatically, if not already authorized ) 
+	// Authorization ( executed automatically, if not already authorized )
 	await api.authorize();
 
 	// Get list of available users on account
@@ -72,16 +72,14 @@ const api = new MykoobAPI({
 	const lessonPlan = await api.lessonsPlan({
 		from: Date.now() - 86400,
 		to: Date.now(),
-		schoolClassesID: usersList[0].schoolClassesID,
-		schoolUserID: usersList[0].schoolUserID
+		school_classes_id: usersList[0].school_classes_id,
+		school_user_id: usersList[0].school_user_id,
 	});
 
 	// Get user activities
 	const userActivities = await api.userActivities({
 		from: Date.now() - 86400,
 		to: Date.now(),
-		schoolClassesID: usersList[0].schoolClassesID,
-		schoolUserID: usersList[0].schoolUserID
 	});
 
 })();

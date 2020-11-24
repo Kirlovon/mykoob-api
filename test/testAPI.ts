@@ -1,5 +1,5 @@
-const authData = require('./mykoobAuth.json');
-const MykoobAPI = require('../index.js');
+import * as authData from './mykoobAuth.json';
+import MykoobAPI from '../index.js';
 
 const api = new MykoobAPI({
 	email: authData.email,
@@ -15,66 +15,66 @@ const api = new MykoobAPI({
 	console.log('');
 
 	console.time('getAuthentificationData');
-	let result1 = await api.getAuthentificationData()
+	const result1 = await api.getAuthentificationData();
 	console.timeEnd('getAuthentificationData');
 	console.info(result1);
 	console.log('');
 
 	console.time('getUsers');
-	let result2 = await api.getUsers()
+	const result2 = await api.getUsers();
 	console.timeEnd('getUsers');
 	console.log(result2);
 	console.log('');
 
 	console.time('userData');
-	let result3 = await api.userData()
+	const result3 = await api.userData();
 	console.timeEnd('userData');
 	console.info(result3);
 	console.log('');
 
 	console.time('apisDetailed');
-	let result4 = await api.apisDetailed();
+	const result4 = await api.apisDetailed();
 	console.timeEnd('apisDetailed');
 	console.info(result4);
 	console.log('');
 
 	console.time('unseenEvents');
-	let result5 = await api.unseenEvents();
+	const result5 = await api.unseenEvents();
 	console.timeEnd('unseenEvents');
 	console.info(result5);
 	console.log('');
 
 	console.time('markAsSeen');
-	let result6 = await api.markAsSeen();
+	const result6 = await api.markAsSeen();
 	console.timeEnd('markAsSeen');
 	console.info(result6);
 	console.log('');
 
 	console.time('plusServicesInfo');
-	let result7 = await api.plusServicesInfo();
+	const result7 = await api.plusServicesInfo();
 	console.timeEnd('plusServicesInfo');
 	console.info(result7);
 	console.log('');
 
 	console.time('userProfileImage');
-	let result8 = await api.userProfileImage('SMALL');
+	const result8 = await api.userProfileImage('SMALL');
 	console.timeEnd('userProfileImage');
 	console.info(result8);
 	console.log('');
 
 	console.time('lessonsPlan');
-	let result9 = await api.lessonsPlan({
+	const result9 = await api.lessonsPlan({
 		from: Date.now() - 10000,
 		to: Date.now(),
-		schoolUserID: result2[0].schoolUserID,
-		schoolClassesID: result2[0].schoolClassesID
+		schoolUserID: result2[0].school_user_id,
+		schoolClassesID: result2[0].school_classes_id
 	});
 	console.timeEnd('lessonsPlan');
 	console.info(result9);
 	console.log('');
 
 	console.time('userActivities');
-	let result10 = await api.userActivities({
+	const result10 = await api.userActivities({
 		from: Date.now() - 10000,
 		to: Date.now()
 	});
@@ -83,11 +83,11 @@ const api = new MykoobAPI({
 	console.log('');
 
 	console.time('userGrades');
-	let result11 = await api.userGrades({
+	const result11 = await api.userGrades({
 		from: Date.now() - 10000,
 		to: Date.now(),
-		schoolUserID: result2[0].schoolUserID,
-		schoolClassesID: result2[0].schoolClassesID,
+		schoolUserID: result2[0].school_user_id,
+		schoolClassesID: result2[0].school_classes_id,
 		sortingType: 0
 	});
 	console.timeEnd('userGrades');
@@ -95,11 +95,11 @@ const api = new MykoobAPI({
 	console.log('');
 
 	console.time('userAttendance');
-	let result12 = await api.userAttendance({
+	const result12 = await api.userAttendance({
 		from: Date.now() - 10000,
 		to: Date.now(),
-		schoolUserID: result2[0].schoolUserID,
-		schoolClassesID: result2[0].schoolClassesID,
+		schoolUserID: result2[0].school_user_id,
+		schoolClassesID: result2[0].school_classes_id,
 		sortingType: 0
 	});
 	console.timeEnd('userAttendance');
@@ -107,11 +107,11 @@ const api = new MykoobAPI({
 	console.log('');
 
 	console.time('userAssignments');
-	let result13 = await api.userAssignments({
+	const result13 = await api.userAssignments({
 		from: Date.now() - 10000,
 		to: Date.now(),
-		schoolUserID: result2[0].schoolUserID,
-		schoolClassesID: result2[0].schoolClassesID,
+		schoolUserID: result2[0].school_user_id,
+		schoolClassesID: result2[0].school_classes_id,
 		sortingType: 0
 	});
 	console.timeEnd('userAssignments');

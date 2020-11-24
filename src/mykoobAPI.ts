@@ -57,8 +57,8 @@ class MykoobAPI {
 		if (typeof config.password === 'string') {
 			this.password = config.password;
 		}
-		if (typeof config.accessToken === 'string') {
-			this.accessToken = config.accessToken;
+		if (typeof config.access_token === 'string') {
+			this.accessToken = config.access_token;
 		}
 		if (typeof config.timeout === 'number') {
 			this.timeout = config.timeout;
@@ -308,9 +308,6 @@ class MykoobAPI {
 			}),
 		});
 
-		if (typeof response.data !== 'object') throw new Error('Response contains invalid data');
-		if (typeof response.data.error !== 'undefined') throw new Error(response.data.error.message);
-
 		return response.data;
 	}
 
@@ -334,8 +331,8 @@ class MykoobAPI {
 				access_token: this.accessToken,
 				date_from: dateFrom,
 				date_to: dateTo,
-				school_classes_id: config.schoolClassesID,
-				school_user_id: config.schoolUserID,
+				school_classes_id: config.school_classes_id,
+				school_user_id: config.school_user_id,
 			}),
 		});
 
@@ -394,9 +391,9 @@ class MykoobAPI {
 				access_token: this.accessToken,
 				date_from: dateFrom,
 				date_to: dateTo,
-				school_classes_id: config.schoolClassesID,
-				school_user_id: config.schoolUserID,
-				sorting_type: config.sortingType,
+				school_classes_id: config.school_classes_id,
+				school_user_id: config.school_user_id,
+				sorting_type: config.sorting_type,
 			}),
 		});
 
@@ -427,9 +424,9 @@ class MykoobAPI {
 				access_token: this.accessToken,
 				date_from: dateFrom,
 				date_to: dateTo,
-				school_classes_id: config.schoolClassesID,
-				school_user_id: config.schoolUserID,
-				sorting_type: config.sortingType,
+				school_classes_id: config.school_classes_id,
+				school_user_id: config.school_user_id,
+				sorting_type: config.sorting_type,
 			}),
 		});
 
@@ -459,9 +456,9 @@ class MykoobAPI {
 				access_token: this.accessToken,
 				date_from: dateFrom,
 				date_to: dateTo,
-				school_classes_id: config.schoolClassesID,
-				school_user_id: config.schoolUserID,
-				sorting_type: config.sortingType,
+				school_classes_id: config.school_classes_id,
+				school_user_id: config.school_user_id,
+				sorting_type: config.sorting_type,
 			}),
 		});
 

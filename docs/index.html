@@ -914,6 +914,15 @@ img { max-width: 100%; }
 			<a href="interfaces/mykoobapiconfig.html" class="tsd-kind-icon">MykoobAPIConfig</a>
 		</li>
 		<li class=" tsd-kind-interface">
+			<a href="interfaces/timeframe.html" class="tsd-kind-icon">Time<wbr>Frame</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/timeframewithinfo.html" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Info</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/timeframewithsortingtype.html" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Sorting<wbr>Type</a>
+		</li>
+		<li class=" tsd-kind-interface">
 			<a href="interfaces/userprofile.html" class="tsd-kind-icon">User<wbr>Profile</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
@@ -933,15 +942,6 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#plusservicesinforesponse" class="tsd-kind-icon">Plus<wbr>Services<wbr>Info<wbr>Response</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#timeframe" class="tsd-kind-icon">Time<wbr>Frame</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#timeframewithinfo" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Info</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#timeframewithsortingtype" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Sorting<wbr>Type</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#unseeneventsresponse" class="tsd-kind-icon">Unseen<wbr>Events<wbr>Response</a>
@@ -1006,7 +1006,7 @@ img { max-width: 100%; }
 <span class="hljs-comment">// Self-executing async function</span>
 (<span class="hljs-keyword">async</span> () =&gt; {
 
-    <span class="hljs-comment">// Authorization ( executed automatically, if not already authorized ) </span>
+    <span class="hljs-comment">// Authorization ( executed automatically, if not already authorized )</span>
     <span class="hljs-keyword">await</span> api.authorize();
 
     <span class="hljs-comment">// Get list of available users on account</span>
@@ -1028,16 +1028,14 @@ img { max-width: 100%; }
     <span class="hljs-keyword">const</span> lessonPlan = <span class="hljs-keyword">await</span> api.lessonsPlan({
         <span class="hljs-attr">from</span>: <span class="hljs-built_in">Date</span>.now() - <span class="hljs-number">86400</span>,
         <span class="hljs-attr">to</span>: <span class="hljs-built_in">Date</span>.now(),
-        <span class="hljs-attr">schoolClassesID</span>: usersList[<span class="hljs-number">0</span>].schoolClassesID,
-        <span class="hljs-attr">schoolUserID</span>: usersList[<span class="hljs-number">0</span>].schoolUserID
+        <span class="hljs-attr">school_classes_id</span>: usersList[<span class="hljs-number">0</span>].school_classes_id,
+        <span class="hljs-attr">school_user_id</span>: usersList[<span class="hljs-number">0</span>].school_user_id,
     });
 
     <span class="hljs-comment">// Get user activities</span>
     <span class="hljs-keyword">const</span> userActivities = <span class="hljs-keyword">await</span> api.userActivities({
         <span class="hljs-attr">from</span>: <span class="hljs-built_in">Date</span>.now() - <span class="hljs-number">86400</span>,
         <span class="hljs-attr">to</span>: <span class="hljs-built_in">Date</span>.now(),
-        <span class="hljs-attr">schoolClassesID</span>: usersList[<span class="hljs-number">0</span>].schoolClassesID,
-        <span class="hljs-attr">schoolUserID</span>: usersList[<span class="hljs-number">0</span>].schoolUserID
     });
 
 })();</code></pre>
@@ -1058,6 +1056,9 @@ img { max-width: 100%; }
 						<h3>Interfaces</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-interface"><a href="interfaces/mykoobapiconfig.html" class="tsd-kind-icon">MykoobAPIConfig</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/timeframe.html" class="tsd-kind-icon">Time<wbr>Frame</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/timeframewithinfo.html" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Info</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/timeframewithsortingtype.html" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Sorting<wbr>Type</a></li>
 							<li class="tsd-kind-interface"><a href="interfaces/userprofile.html" class="tsd-kind-icon">User<wbr>Profile</a></li>
 						</ul>
 					</section>
@@ -1070,9 +1071,6 @@ img { max-width: 100%; }
 							<li class="tsd-kind-type-alias"><a href="globals.html#lessonsplanresponse" class="tsd-kind-icon">Lessons<wbr>Plan<wbr>Response</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#markasseenresponse" class="tsd-kind-icon">Mark<wbr>AsSeen<wbr>Response</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#plusservicesinforesponse" class="tsd-kind-icon">Plus<wbr>Services<wbr>Info<wbr>Response</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#timeframe" class="tsd-kind-icon">Time<wbr>Frame</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#timeframewithinfo" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Info</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#timeframewithsortingtype" class="tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Sorting<wbr>Type</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#unseeneventsresponse" class="tsd-kind-icon">Unseen<wbr>Events<wbr>Response</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#useractivitiesresponse" class="tsd-kind-icon">User<wbr>Activities<wbr>Response</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#userassignmentsresponse" class="tsd-kind-icon">User<wbr>Assignments<wbr>Response</a></li>
@@ -1092,7 +1090,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Apis<wbr>Detailed<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/responses.ts#L12">responses.ts:12</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/responses.ts#L12">responses.ts:12</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1107,7 +1105,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Get<wbr>Authentification<wbr>Data<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/responses.ts#L2">responses.ts:2</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/responses.ts#L2">responses.ts:2</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1122,7 +1120,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Image<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"SMALL"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MEDIUM"</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/definitions.ts#L80">definitions.ts:80</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/definitions.ts#L67">definitions.ts:67</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1137,7 +1135,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Lessons<wbr>Plan<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/responses.ts#L108">responses.ts:108</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/responses.ts#L108">responses.ts:108</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1152,7 +1150,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Mark<wbr>AsSeen<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/responses.ts#L94">responses.ts:94</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/responses.ts#L94">responses.ts:94</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1167,7 +1165,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Plus<wbr>Services<wbr>Info<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/responses.ts#L78">responses.ts:78</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/responses.ts#L78">responses.ts:78</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1177,57 +1175,12 @@ img { max-width: 100%; }
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="timeframe" class="tsd-anchor"></a>
-				<h3>Time<wbr>Frame</h3>
-				<div class="tsd-signature tsd-kind-icon">Time<wbr>Frame<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/definitions.ts#L18">definitions.ts:18</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Config for userActivities() method.</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="timeframewithinfo" class="tsd-anchor"></a>
-				<h3>Time<wbr>Frame<wbr>With<wbr>Info</h3>
-				<div class="tsd-signature tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Info<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/definitions.ts#L28">definitions.ts:28</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Config for lessonsPlan() method</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="timeframewithsortingtype" class="tsd-anchor"></a>
-				<h3>Time<wbr>Frame<wbr>With<wbr>Sorting<wbr>Type</h3>
-				<div class="tsd-signature tsd-kind-icon">Time<wbr>Frame<wbr>With<wbr>Sorting<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/definitions.ts#L44">definitions.ts:44</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Config for userGrades(), userAttendance() and userAssignments() methods.</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="unseeneventsresponse" class="tsd-anchor"></a>
 				<h3>Unseen<wbr>Events<wbr>Response</h3>
 				<div class="tsd-signature tsd-kind-icon">Unseen<wbr>Events<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/responses.ts#L100">responses.ts:100</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/responses.ts#L100">responses.ts:100</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1242,7 +1195,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">User<wbr>Activities<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/responses.ts#L129">responses.ts:129</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/responses.ts#L129">responses.ts:129</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1257,7 +1210,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">User<wbr>Assignments<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/responses.ts#L195">responses.ts:195</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/responses.ts#L195">responses.ts:195</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1272,7 +1225,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">User<wbr>Attendance<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/responses.ts#L181">responses.ts:181</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/responses.ts#L181">responses.ts:181</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1287,7 +1240,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">User<wbr>Data<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/responses.ts#L28">responses.ts:28</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/responses.ts#L28">responses.ts:28</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1302,7 +1255,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">User<wbr>Grades<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/1e58a83/src/responses.ts#L153">responses.ts:153</a></li>
+						<li>Defined in <a href="https://github.com/Kirlovon/Mykoob-API/blob/f06a26e/src/responses.ts#L153">responses.ts:153</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">

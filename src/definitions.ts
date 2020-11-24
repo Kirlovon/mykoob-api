@@ -8,56 +8,43 @@ export interface MykoobAPIConfig {
 	password: string;
 
 	/** Access token for authentification. */
-	accessToken: string;
+	access_token: string;
 
 	/** Request timeout. */
 	timeout: number;
 }
 
 /** Config for userActivities() method. */
-export type TimeFrame = Partial<{
+export interface TimeFrame {
 
 	/** Beginning of time frame in "YYYY-MM-DD" format. */
-	from: string | number;
+	from?: string | number;
 
 	/** Ending of time frame in "YYYY-MM-DD" format. */
-	to: string | number;
-}>;
+	to?: string | number;
+}
 
 /** Config for lessonsPlan() method */
-export type TimeFrameWithInfo = Partial<{
+export interface TimeFrameWithInfo {
 
 	/** Beginning of time frame in "YYYY-MM-DD" format. */
-	from: string | number;
+	from?: string | number;
 
 	/** Ending of time frame in "YYYY-MM-DD" format. */
-	to: string | number;
+	to?: string | number;
 
 	/** Classes ID from userData() method. */
-	schoolClassesID: number;
+	school_classes_id?: number;
 
 	/** User ID from userData() method. */
-	schoolUserID: number;
-}>;
+	school_user_id?: number;
+}
 
 /** Config for userGrades(), userAttendance() and userAssignments() methods. */
-export type TimeFrameWithSortingType = Partial<{
-
-	/** Beginning of time frame in "YYYY-MM-DD" format. */
-	from: string | number;
-
-	/** Ending of time frame in "YYYY-MM-DD" format. */
-	to: string | number;
-
-	/** Classes ID from userData() method. */
-	schoolClassesID: number;
-
-	/** User ID from userData() method. */
-	schoolUserID: number;
-
+export interface TimeFrameWithSortingType extends TimeFrameWithInfo {
 	/** Sorting type. ( 1 - by order, 0 - by execution ) */
-	sortingType: 0 | 1;
-}>;
+	sorting_type?: 0 | 1;
+}
 
 /** Object with user info from getUsers method. */
 export interface UserProfile {
